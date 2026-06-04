@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: presenca_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: presenca_backend
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_PATH=${DATABASE_PATH}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - sqlite_data:/app/data   # ← pasta onde o .db fica persistido
+
+volumes:
+  sqlite_data:
