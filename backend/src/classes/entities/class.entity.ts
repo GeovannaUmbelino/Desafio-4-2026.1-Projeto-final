@@ -13,7 +13,7 @@ export class Class {
   @Column() // Nome da Turma / Disciplina (ex: "Laboratório de Química")
   name!: string;
 
-  @Column() // Código ou sala da turma (ex: "LAB-03" ou "TURMA-A")
+  @Column({ unique: true }) // Código ou sala da turma (ex: "LAB-03" ou "TURMA-A")
   code!: string;
 
   @Column('uuid') // Guarda o UUID do Professor responsável (que vem de Users)
@@ -22,6 +22,10 @@ export class Class {
   // Armazena os UUIDs dos alunos matriculados como um array de textos (JSON)
   @Column({ type: 'simple-json', nullable: true })
   studentIds!: string[];
+
+  // Guarda o horário da turma
+  @Column({ nullable: true })
+  schedule!: string;
 
   @CreateDateColumn()
   createdAt!: Date;

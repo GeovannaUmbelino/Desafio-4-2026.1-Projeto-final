@@ -22,6 +22,7 @@ export class ClassesController {
       createClassDto.name,
       createClassDto.code,
       createClassDto.teacherId,
+      createClassDto.schedule,
     );
   }
 

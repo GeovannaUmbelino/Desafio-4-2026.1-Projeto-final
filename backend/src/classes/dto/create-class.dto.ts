@@ -12,4 +12,8 @@ export class CreateClassDto {
   @IsNotEmpty({ message: 'O ID do professor responsável é obrigatório.' })
   @IsUUID('4', { message: 'O ID do professor deve ser um UUID válido.' })
   teacherId!: string;
+
+  @IsNotEmpty({ message: 'O horário da turma é obrigatório.' })
+  @IsString()
+  schedule!: string;
 }

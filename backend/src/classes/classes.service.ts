@@ -16,11 +16,13 @@ export class ClassesService {
     name: string,
     code: string,
     teacherId: string,
+    schedule: string,
   ): Promise<Class> {
     const newClass = this.classRepository.create({
       name,
       code,
       teacherId,
+      schedule,
       studentIds: [],
     });
     return this.classRepository.save(newClass);
@@ -94,6 +96,7 @@ export class ClassesService {
       id: targetClass.id,
       name: targetClass.name,
       code: targetClass.code,
+      schedule: targetClass.schedule,
       totalStudents: targetClass.studentIds ? targetClass.studentIds.length : 0,
       studentIds: targetClass.studentIds || [],
     };
