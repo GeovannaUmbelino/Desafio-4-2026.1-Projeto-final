@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Class } from './entities/class.entity';
+import { UpdateClassDto } from './dto/update-class.dto';
 
 @Injectable()
 export class ClassesService {
@@ -10,7 +11,7 @@ export class ClassesService {
     private readonly classRepository: Repository<Class>,
   ) {}
 
-  // 1. Função do Professor/Admin: Criar uma nova turma
+  // 1. Criar uma nova turma
   async createClass(
     name: string,
     code: string,
@@ -20,12 +21,12 @@ export class ClassesService {
       name,
       code,
       teacherId,
-      studentIds: [], // Nasce sem nenhum aluno matriculado
+      studentIds: [],
     });
     return this.classRepository.save(newClass);
   }
 
-  // 2. Função do Professor/Admin: Matricular um aluno na turma
+  // 2. Matricular um aluno na turma
   async enrollStudent(classId: string, studentId: string): Promise<Class> {
     const targetClass = await this.classRepository.findOne({
       where: { id: classId },
@@ -34,7 +35,10 @@ export class ClassesService {
       throw new NotFoundException('Turma não encontrada.');
     }
 
-    // Se o aluno já não estiver matriculado, adiciona ele na lista
+    if (!targetClass.studentIds) {
+      targetClass.studentIds = [];
+    }
+
     if (!targetClass.studentIds.includes(studentId)) {
       targetClass.studentIds.push(studentId);
     }
@@ -42,17 +46,56 @@ export class ClassesService {
     return this.classRepository.save(targetClass);
   }
 
-  // 3. Função do Professor: Ver as turmas que ELE ministra
+  // 3. Ver as turmas de um Professor
   async findByTeacher(teacherId: string): Promise<Class[]> {
     return this.classRepository.find({ where: { teacherId } });
   }
 
-  // 4. Função do Aluno: Ver as turmas em que ELE está matriculado
+  // 4. Ver as turmas de um Aluno
   async findByStudent(studentId: string): Promise<Class[]> {
     const allClasses = await this.classRepository.find();
-    // Filtra apenas as turmas onde o array de alunos contém o ID desse aluno
     return allClasses.filter(
       (c) => c.studentIds && c.studentIds.includes(studentId),
     );
+  }
+
+  // 5. Editar dados de uma turma (Nome, Código, etc.)
+  async updateClass(
+    id: string,
+    updateClassDto: UpdateClassDto,
+  ): Promise<Class> {
+    const targetClass = await this.classRepository.findOne({ where: { id } });
+    if (!targetClass) {
+      throw new NotFoundException('Turma não encontrada para atualização.');
+    }
+
+    // Mescla as alterações vindas do DTO na turma encontrada
+    Object.assign(targetClass, updateClassDto);
+    return this.classRepository.save(targetClass);
+  }
+
+  // 6. Deletar uma turma do sistema
+  async removeClass(id: string): Promise<void> {
+    const targetClass = await this.classRepository.findOne({ where: { id } });
+    if (!targetClass) {
+      throw new NotFoundException('Turma não encontrada para exclusão.');
+    }
+    await this.classRepository.remove(targetClass);
+  }
+
+  // 7. Buscar dados gerais da turma incluindo a lista de alunos vinculados
+  async getClassDashboardData(id: string) {
+    const targetClass = await this.classRepository.findOne({ where: { id } });
+    if (!targetClass) {
+      throw new NotFoundException('Turma não encontrada.');
+    }
+
+    return {
+      id: targetClass.id,
+      name: targetClass.name,
+      code: targetClass.code,
+      totalStudents: targetClass.studentIds ? targetClass.studentIds.length : 0,
+      studentIds: targetClass.studentIds || [],
+    };
   }
 }
