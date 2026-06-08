@@ -15,6 +15,7 @@ import { UpdateClassDto } from './dto/update-class.dto';
 export class ClassesController {
   constructor(private readonly classesService: ClassesService) {}
 
+  // 1. CRIAÇÃO DE TURMAS
   @Post()
   create(@Body() createClassDto: CreateClassDto) {
     return this.classesService.createClass(
@@ -24,6 +25,7 @@ export class ClassesController {
     );
   }
 
+  // 2. MATRÍCULA DE ALUNOS
   @Patch(':id/enroll')
   enrollStudent(
     @Param('id') classId: string,
@@ -32,29 +34,31 @@ export class ClassesController {
     return this.classesService.enrollStudent(classId, studentId);
   }
 
+  // 3. LISTAGEM POR PROFESSOR
   @Get('teacher/:teacherId')
   findByTeacher(@Param('teacherId') teacherId: string) {
     return this.classesService.findByTeacher(teacherId);
   }
 
+  // 4. LISTAGEM POR ALUNO
   @Get('student/:studentId')
   findByStudent(@Param('studentId') studentId: string) {
     return this.classesService.findByStudent(studentId);
   }
 
-  // NOVA ROTA: Obter dados gerais e quantidade de alunos da turma
+  // 5. DASHBOARD DA TURMA
   @Get(':id/dashboard')
   getClassDashboard(@Param('id') id: string) {
     return this.classesService.getClassDashboardData(id);
   }
 
-  // NOVA ROTA: Editar dados da turma (nome/codigo)
+  // 6. EDIÇÃO DE TURMAS
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateClassDto: UpdateClassDto) {
     return this.classesService.updateClass(id, updateClassDto);
   }
 
-  // NOVA ROTA: Deletar uma turma
+  // 7. EXCLUSÃO DE TURMAS
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.classesService.removeClass(id);
