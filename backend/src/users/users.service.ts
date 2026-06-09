@@ -24,7 +24,7 @@ export class UsersService {
 
   // 2. Função para Editar os Dados do Perfil
   async update(id: string, updateUserData: Partial<User>): Promise<User> {
-    const user = await this.findOne(id); // Garante que o usuário existe
+    const user = await this.findOne(id);
     // Mescla os dados novos com os dados antigos
     const updatedUser = this.userRepository.merge(user, updateUserData);
     // Salva as alterações no banco de dados
@@ -33,7 +33,7 @@ export class UsersService {
 
   // 3. Função para Deletar a Conta
   async remove(id: string): Promise<{ message: string }> {
-    const user = await this.findOne(id); // Garante que o usuário existe
+    const user = await this.findOne(id);
     await this.userRepository.remove(user);
     return { message: 'Conta deletada com sucesso' };
   }

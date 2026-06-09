@@ -3,7 +3,6 @@ import { Request } from 'express';
 import { UsersService } from './users.service';
 import { User } from './entities/user.entity';
 
-// Criamos uma estrutura para o TypeScript saber que a requisição terá um usuário logado
 interface RequestWithUser extends Request {
   user?: {
     id: string;
