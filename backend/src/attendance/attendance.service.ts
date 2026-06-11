@@ -1,26 +1,51 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Attendance } from './entities/attendance.entity';
+import { Class } from '../classes/entities/class.entity';
 import { CreateAttendanceDto } from './dto/create-attendance.dto';
-import { UpdateAttendanceDto } from './dto/update-attendance.dto';
 
 @Injectable()
 export class AttendanceService {
-  create(createAttendanceDto: CreateAttendanceDto) {
-    return 'This action adds a new attendance';
+  constructor(
+    @InjectRepository(Attendance)
+    private readonly attendanceRepository: Repository<Attendance>,
+
+    @InjectRepository(Class)
+    private readonly classRepository: Repository<Class>,
+  ) {}
+
+  async create(createAttendanceDto: CreateAttendanceDto): Promise<Attendance> {
+    const { classId, date, presentStudents } = createAttendanceDto;
+
+    const classExists = await this.classRepository.findOne({
+      where: { id: classId },
+    });
+    if (!classExists) {
+      throw new NotFoundException(
+        `Turma com o ID "${classId}" não foi encontrada.`,
+      );
+    }
+
+    const newAttendance = this.attendanceRepository.create({
+      classId,
+      date,
+      presentStudents: JSON.stringify(presentStudents),
+    });
+
+    return await this.attendanceRepository.save(newAttendance);
   }
 
-  findAll() {
-    return `This action returns all attendance`;
+  async findAll(): Promise<Attendance[]> {
+    return await this.attendanceRepository.find({
+      relations: { class: true },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} attendance`;
-  }
-
-  update(id: number, updateAttendanceDto: UpdateAttendanceDto) {
-    return `This action updates a #${id} attendance`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} attendance`;
+  async findByClass(classId: string): Promise<Attendance[]> {
+    return await this.attendanceRepository.find({
+      where: { classId },
+      order: { createdAt: 'DESC' },
+    });
   }
 }
