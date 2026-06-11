@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm'; // Importação necessária
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AttendanceModule } from './attendance/attendance.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AppService } from './app.service';
       autoLoadEntities: true,
       synchronize: true, // em dev tá ótimo, cria as tabelas automaticamente
     }),
+    AttendanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
