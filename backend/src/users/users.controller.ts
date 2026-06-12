@@ -39,7 +39,6 @@ export class UsersController {
     return this.usersService.update(userId, updateUserData);
   }
 
-  // ROTA TEMPORÁRIA PARA TESTE DA SPRINT 3
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     // O ValidationPipe do NestJS vai validar tudo usando o CreateUserDto
