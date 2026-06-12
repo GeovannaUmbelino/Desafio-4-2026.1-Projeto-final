@@ -8,8 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ClassesService } from './classes.service';
-import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
+import { CreateClassDto } from './dto/create-class.dto';
 
 @Controller('classes')
 export class ClassesController {
@@ -18,12 +18,8 @@ export class ClassesController {
   // 1. CRIAÇÃO DE TURMAS
   @Post()
   create(@Body() createClassDto: CreateClassDto) {
-    return this.classesService.createClass(
-      createClassDto.name,
-      createClassDto.code,
-      createClassDto.teacherId,
-      createClassDto.schedule,
-    );
+    const { name, code, teacherId, schedule } = createClassDto;
+    return this.classesService.createClass(name, code, teacherId, schedule);
   }
 
   // 2. MATRÍCULA DE ALUNOS

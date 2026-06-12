@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'; // Importação necessária
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AttendanceModule } from './attendance/attendance.module';
+import { UsersModule } from './users/users.module';
+import { ClassesModule } from './classes/classes.module';
 
 @Module({
   imports: [
@@ -12,7 +14,9 @@ import { AttendanceModule } from './attendance/attendance.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    UsersModule,
     AttendanceModule,
+    ClassesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

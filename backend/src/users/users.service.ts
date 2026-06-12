@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
-
+import { CreateUserDto } from './dto/create-user.dto';
 @Injectable()
 export class UsersService {
   constructor(
@@ -10,7 +10,13 @@ export class UsersService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  // 1. Função para Visualizar o Perfil
+  //Função para criar usuário
+  async createUser(createUserDto: CreateUserDto) {
+    const newUser = this.userRepository.create(createUserDto);
+    return await this.userRepository.save(newUser);
+  }
+
+  //Função para Visualizar o Perfil
   async findOne(id: string): Promise<User> {
     const user = await this.userRepository.findOne({ where: { id } });
     if (!user) {
@@ -22,7 +28,7 @@ export class UsersService {
     return userResponse as User;
   }
 
-  // 2. Função para Editar os Dados do Perfil
+  //Função para Editar os Dados do Perfil
   async update(id: string, updateUserData: Partial<User>): Promise<User> {
     const user = await this.findOne(id);
     // Mescla os dados novos com os dados antigos
@@ -31,7 +37,7 @@ export class UsersService {
     return await this.userRepository.save(updatedUser);
   }
 
-  // 3. Função para Deletar a Conta
+  //Função para Deletar a Conta
   async remove(id: string): Promise<{ message: string }> {
     const user = await this.findOne(id);
     await this.userRepository.remove(user);

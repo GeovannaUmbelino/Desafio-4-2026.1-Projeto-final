@@ -1,7 +1,16 @@
-import { Controller, Get, Body, Patch, Delete, Req } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Body,
+  Patch,
+  Delete,
+  Req,
+  Post,
+} from '@nestjs/common';
 import { Request } from 'express';
 import { UsersService } from './users.service';
 import { User } from './entities/user.entity';
+import { CreateUserDto } from './dto/create-user.dto';
 
 interface RequestWithUser extends Request {
   user?: {
@@ -30,6 +39,12 @@ export class UsersController {
     return this.usersService.update(userId, updateUserData);
   }
 
+  // ROTA TEMPORÁRIA PARA TESTE DA SPRINT 3
+  @Post()
+  create(@Body() createUserDto: CreateUserDto) {
+    // O ValidationPipe do NestJS vai validar tudo usando o CreateUserDto
+    return this.usersService.createUser(createUserDto);
+  }
   // 3. Rota para Deletar Conta: DELETE /users/me
   @Delete('me')
   async deleteAccount(

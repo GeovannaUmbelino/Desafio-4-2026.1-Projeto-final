@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common'; // Adicionado o Query aqui!
 import { AttendanceService } from './attendance.service';
 import { CreateAttendanceDto } from './dto/create-attendance.dto';
 
@@ -6,21 +6,31 @@ import { CreateAttendanceDto } from './dto/create-attendance.dto';
 export class AttendanceController {
   constructor(private readonly attendanceService: AttendanceService) {}
 
-  // 1. Rota para o professor enviar a chamada
+  // Rota criar chamada
   @Post()
   create(@Body() createAttendanceDto: CreateAttendanceDto) {
     return this.attendanceService.create(createAttendanceDto);
   }
 
-  // 2. Rota para listar TODAS as chamadas do sistema
+  // Rota listar todas as chamadas
   @Get()
   findAll() {
     return this.attendanceService.findAll();
   }
 
-  // 3. Rota para buscar o histórico de chamadas de uma turma específica
+  // Rota buscar chamadas por turma (Aceita query params opcionais: ?startDate=...&endDate=...)
   @Get('turma/:classId')
-  findByClass(@Param('classId') classId: string) {
-    return this.attendanceService.findByClass(classId);
+  findByClass(
+    @Param('classId') classId: string,
+    @Query('startDate') startDate?: string,
+    @Query('endDate') endDate?: string,
+  ) {
+    return this.attendanceService.findByClass(classId, startDate, endDate);
+  }
+
+  // Rota gerar relatório da turma
+  @Get('turma/:classId/report')
+  getReport(@Param('classId') classId: string) {
+    return this.attendanceService.getAttendanceReport(classId);
   }
 }
