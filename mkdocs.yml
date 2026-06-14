@@ -1,0 +1,76 @@
+site_name: Sistema de Gestão de Presença
+repo_url: 
+theme:
+  name: material
+  custom_dir: overrides
+  logo: img\logo.png
+  favicon: img\logo.png
+  features:
+    - navigation.tabs
+    - navigation.top
+    
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: "orange"
+      accent: "purple"
+      toggle:
+        icon: material/brightness-4
+        name: Alternar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: "grey"
+      accent: "orange"
+      toggle:
+        icon: material/brightness-7
+        name: Alternar para modo claro
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Sobre: 
+    - Sobre: Sobre/Sobre.md
+    - Visão do Produto: Sobre/Visao_do_produto.md
+    - Benchmarking: Sobre/Benchmarking.md
+
+  - Planejamento:
+      - Metodologia: Planejamento/Metodologia.md
+      - Ferramentas: Planejamento/Ferramentas.md
+      - Cronograma: Planejamento/Cronograma.md
+      - Heatmap: Planejamento/Heatmap.md
+
+  - Atas:
+      - 1. Ata de Reunião(04/09): Atas/ata09-04.md
+     
+
+  - Pré-Rastreabilidade:
+      - Rich Picture: Pré-Rastriabilidade/Rich-picture.md
+      - Lista de verificação: Pré-Rastriabilidade/Rich_pictureLV.md
+
+  - Elicitação:
+      - Perfil de usuário: Elicitação/Perfil_usuario.md
+      - Requisitos Elicitados: Elicitação/Requisitos-Elicitados.md
+      - Priorização:
+          - Tree Level Scale: Elicitação/Priorização/Three_level_scale.md
+    
+
+  - Modelagem:
+      - Casos de Uso: Modelagem/Casos-de-uso.md
+      - Especificação: Modelagem/Especificacao.md
+      - Ágil:
+          - Histórias de usuário: Modelagem/Ágil/HistoriaUsuario.md
+          - Backlog: Modelagem/Ágil/Backlog.md
+          - NFR Framework: Modelagem/Ágil/NFR-Framework.md
+
+  - Análise:
+      - Prototipação: Análise/Prototipacao.md
+
+
+ 
+ 
