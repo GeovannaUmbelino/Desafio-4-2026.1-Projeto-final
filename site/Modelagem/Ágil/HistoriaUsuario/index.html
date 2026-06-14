@@ -1,0 +1,2005 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Especificacao/">
+      
+      
+        <link rel="next" href="../Backlog/">
+      
+      
+      <link rel="icon" href="../../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Histórias de usuário - Sistema de Gestão de Presença</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#historia-de-usuario" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Sistema de Gestão de Presença" class="md-header__button md-logo" aria-label="Sistema de Gestão de Presença" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sistema de Gestão de Presença
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Histórias de usuário
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="purple"  aria-label="Alternar para modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="orange"  aria-label="Alternar para modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Sobre/Sobre/" class="md-tabs__link">
+          
+  
+  Sobre
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Planejamento/Metodologia/" class="md-tabs__link">
+          
+  
+  Planejamento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Atas/ata09-04/" class="md-tabs__link">
+          
+  
+  Atas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Pr%C3%A9-Rastriabilidade/Rich-picture/" class="md-tabs__link">
+          
+  
+  Pré-Rastreabilidade
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Elicita%C3%A7%C3%A3o/Perfil_usuario/" class="md-tabs__link">
+          
+  
+  Elicitação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Casos-de-uso/" class="md-tabs__link">
+          
+  
+  Modelagem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../An%C3%A1lise/Prototipacao/" class="md-tabs__link">
+          
+  
+  Análise
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sistema de Gestão de Presença" class="md-nav__button md-logo" aria-label="Sistema de Gestão de Presença" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Sistema de Gestão de Presença
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Sobre
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sobre
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sobre/Sobre/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sobre/Visao_do_produto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão do Produto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sobre/Benchmarking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmarking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Planejamento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Planejamento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Metodologia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Ferramentas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ferramentas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Cronograma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cronograma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Heatmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heatmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Atas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Atas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Atas/ata09-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Ata de Reunião(04/09)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Pré-Rastreabilidade
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Pré-Rastreabilidade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pr%C3%A9-Rastriabilidade/Rich-picture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rich Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pré-Rastriabilidade/Rich_pictureLV.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lista de verificação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Elicitação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Elicitação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Elicita%C3%A7%C3%A3o/Perfil_usuario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perfil de usuário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Elicita%C3%A7%C3%A3o/Requisitos-Elicitados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Elicitados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Priorização
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Priorização
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Elicita%C3%A7%C3%A3o/Prioriza%C3%A7%C3%A3o/Three_level_scale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tree Level Scale
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Modelagem
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Modelagem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Casos-de-uso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Especificacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Especificação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ágil
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ágil
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Histórias de usuário
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Histórias de usuário
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    Histórias de usuário
+  </a>
+  
+    <nav class="md-nav" aria-label="Histórias de usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hu01-autenticacao-segura" class="md-nav__link">
+    HU01 - Autenticação Segura
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu02-gerenciamento-de-alunos-e-turmas-administrador" class="md-nav__link">
+    HU02 - Gerenciamento de Alunos e Turmas (Administrador)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu03-registro-digital-de-chamada-professor" class="md-nav__link">
+    HU03 - Registro Digital de Chamada (Professor)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu04-painel-analitico-de-frequencia-dashboard" class="md-nav__link">
+    HU04 - Painel Analítico de Frequência (Dashboard)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu05-emissao-de-relatorios-estatisticos-coordenacao" class="md-nav__link">
+    HU05 - Emissão de Relatórios Estatísticos (Coordenação)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu06-acessibilidade-visual-e-interface-responsiva" class="md-nav__link">
+    HU06 - Acessibilidade Visual e Interface Responsiva
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu07-recuperacao-e-redefinicao-de-senha" class="md-nav__link">
+    HU07 - Recuperação e Redefinição de Senha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu08-justificativa-de-ausencia-academica" class="md-nav__link">
+    HU08 - Justificativa de Ausência Acadêmica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu09-filtros-avancados-de-busca-e-consulta" class="md-nav__link">
+    HU09 - Filtros Avançados de Busca e Consulta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu10-arquitetura-de-banco-de-dados-e-consistencia-relacional" class="md-nav__link">
+    HU10 - Arquitetura de Banco de Dados e Consistência Relacional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu11-desempenho-e-tempo-de-resposta-da-api-back-end" class="md-nav__link">
+    HU11 - Desempenho e Tempo de Resposta da API (Back-end)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu12-seguranca-da-informacao-e-controle-de-sessao" class="md-nav__link">
+    HU12 - Segurança da Informação e Controle de Sessão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versoes" class="md-nav__link">
+    Histórico de Versões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Backlog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backlog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ágil/NFR-Framework.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFR Framework
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Análise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Análise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../An%C3%A1lise/Prototipacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prototipação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objetivo" class="md-nav__link">
+    Objetivo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    Histórias de usuário
+  </a>
+  
+    <nav class="md-nav" aria-label="Histórias de usuário">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hu01-autenticacao-segura" class="md-nav__link">
+    HU01 - Autenticação Segura
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu02-gerenciamento-de-alunos-e-turmas-administrador" class="md-nav__link">
+    HU02 - Gerenciamento de Alunos e Turmas (Administrador)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu03-registro-digital-de-chamada-professor" class="md-nav__link">
+    HU03 - Registro Digital de Chamada (Professor)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu04-painel-analitico-de-frequencia-dashboard" class="md-nav__link">
+    HU04 - Painel Analítico de Frequência (Dashboard)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu05-emissao-de-relatorios-estatisticos-coordenacao" class="md-nav__link">
+    HU05 - Emissão de Relatórios Estatísticos (Coordenação)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu06-acessibilidade-visual-e-interface-responsiva" class="md-nav__link">
+    HU06 - Acessibilidade Visual e Interface Responsiva
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu07-recuperacao-e-redefinicao-de-senha" class="md-nav__link">
+    HU07 - Recuperação e Redefinição de Senha
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu08-justificativa-de-ausencia-academica" class="md-nav__link">
+    HU08 - Justificativa de Ausência Acadêmica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu09-filtros-avancados-de-busca-e-consulta" class="md-nav__link">
+    HU09 - Filtros Avançados de Busca e Consulta
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu10-arquitetura-de-banco-de-dados-e-consistencia-relacional" class="md-nav__link">
+    HU10 - Arquitetura de Banco de Dados e Consistência Relacional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu11-desempenho-e-tempo-de-resposta-da-api-back-end" class="md-nav__link">
+    HU11 - Desempenho e Tempo de Resposta da API (Back-end)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hu12-seguranca-da-informacao-e-controle-de-sessao" class="md-nav__link">
+    HU12 - Segurança da Informação e Controle de Sessão
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versoes" class="md-nav__link">
+    Histórico de Versões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="historia-de-usuario">Historia de Usuário</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Utilizada para levantar requisitos no escopo ágil, a história de usuário descreve uma funcionalidade de maneira sucinta e sob o ponto de vista do cliente. Para viabilizar a verificação do sistema, essas histórias devem vir acompanhadas de critérios de aceitação bem delimitados <a id="anchor_1" href="#FRM1">[1]</a>.</p>
+<h2 id="objetivo">Objetivo</h2>
+<p>O objetivo deste artefato é apresentar o detalhamento e as condições de conformidade das histórias de usuário estruturadas no product backlog.</p>
+<h2 id="historias-de-usuario">Histórias de usuário</h2>
+<p>As tabelas 1 a 7 descrevem as histórias de usuários elicitadas</p>
+<h3 id="hu01-autenticacao-segura">HU01 - Autenticação Segura</h3>
+<p>A tabela 1 mostra a história de usuário 1.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU01</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como usuário do sistema (professor, aluno ou administrador), desejo realizar o login seguro na plataforma para garantir a proteção dos meus dados acadêmicos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O sistema deve apresentar campos de e-mail/matrícula e senha com validação de formato.<br>- O sistema deve diferenciar as permissões de acesso com base no perfil logado (professor, aluno ou administrador).<br>- Senhas armazenadas no banco de dados devem ser criptografadas de ponta a ponta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ01, RQ02</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Sim</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 1:</strong> Autenticação Segura</p>
+<h3 id="hu02-gerenciamento-de-alunos-e-turmas-administrador">HU02 - Gerenciamento de Alunos e Turmas (Administrador)</h3>
+<p>A tabela 2 mostra a história de usuário 2.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU02</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como administrador do sistema, desejo criar, ler, atualizar e deletar (CRUD) turmas, disciplinas e alunos para manter a base de dados acadêmica integrada e atualizada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O sistema deve permitir a importação de listas de alunos matriculados via arquivo ou cadastro manual.<br>- O administrador deve conseguir vincular um professor específico a uma ou mais turmas criadas.<br>- Alterações cadastrais devem ser refletidas instantaneamente nos painéis de chamada dos professores vinculados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ03, RQ04, RQ05</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 2:</strong> Gerenciamento de Alunos e Turmas</p>
+<h3 id="hu03-registro-digital-de-chamada-professor">HU03 - Registro Digital de Chamada (Professor)</h3>
+<p>A tabela 3 mostra a história de usuário 3.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU03</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como professor, desejo registrar a presença e a falta dos alunos em uma aula prática de forma digital e rápida para eliminar pautas de papel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O sistema deve listar todos os alunos da turma em ordem alfabética com seletores visuais de "Presença" ou "Falta".<br>- Deve permitir a inserção de justificativas médicas ou administrativas para faltas específicas.<br>- O fluxo completo de chamada deve ser intuitivo, permitindo a conclusão em menos de 8 minutos sem necessidade de treinamento prévio.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ06, RQ09, RQ20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 3:</strong> Registro Digital de Chamada</p>
+<h3 id="hu04-painel-analitico-de-frequencia-dashboard">HU04 - Painel Analítico de Frequência (Dashboard)</h3>
+<p>A tabela 4 mostra a história de usuário 4.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU04</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como professor ou coordenador, desejo visualizar um painel gráfico com o total de alunos, aulas ministradas e a taxa de presença para monitorar a assiduidade em tempo real.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O dashboard deve apresentar gráficos dinâmicos de linha ou barras com o histórico de presença das turmas.<br>- Devem ser exibidos cartões de destaque com alertas para alunos que cruzarem o limite crítico de faltas estipulado pela instituição.<br>- O tempo de renderização dos dados e gráficos na tela deve ser inferior a 2 segundos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ10, RQ17, RQ22</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 4:</strong> Painel Analítico de Frequência</p>
+<hr />
+<h3 id="hu05-emissao-de-relatorios-estatisticos-coordenacao">HU05 - Emissão de Relatórios Estatísticos (Coordenação)</h3>
+<p>A tabela 5 mostra a história de usuário 5.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU05</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como coordenador de curso, desejo gerar e exportar relatórios periódicos da frequência de turmas para auditorias internas e tomada de decisões pedagógicas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O sistema deve permitir a filtragem de relatórios por disciplina, período letivo, professor ou estudante específico.<br>- Deve disponibilizar a exportação dos dados compilados em formatos padrão de mercado (como PDF ou arquivos de planilha eletrônica CSV).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ11, RQ15</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Média</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 5:</strong> Emissão de Relatórios Estatísticos</p>
+<hr />
+<h3 id="hu06-acessibilidade-visual-e-interface-responsiva">HU06 - Acessibilidade Visual e Interface Responsiva</h3>
+<p>A tabela 6 mostra a história de usuário 6.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU06</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como usuário do sistema, desejo acessar a plataforma a partir de dispositivos móveis ou desktops com suporte a modo escuro para garantir uma boa experiência de leitura e acessibilidade visual.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- A interface construída com Tailwind CSS deve adaptar os elementos visuais automaticamente a telas de smartphones, tablets e desktops (responsividade).<br>- O sistema deve disponibilizar um botão global de alternância rápida entre os temas Claro (Light Mode) e Escuro (Dark Mode).<br>- A combinação de cores deve assegurar um contraste mínimo em conformidade com as diretrizes internacionais de acessibilidade web.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ13, RQ18, RQ21</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Média</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 6:</strong> Acessibilidade Visual e Interface Responsiva</p>
+<h3 id="hu07-recuperacao-e-redefinicao-de-senha">HU07 - Recuperação e Redefinição de Senha</h3>
+<p>A tabela 7 mostra a história de usuário 7.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU07</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como usuário cadastrado, desejo solicitar a redefinição da minha senha através do envio de um link seguro por e-mail para recuperar o acesso à minha conta em caso de esquecimento.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O sistema deve validar se o e-mail informado existe na base de dados antes de disparar o fluxo.<br>- O link de redefinição enviado por e-mail deve possuir um token com tempo de expiração de no máximo 15 minutos.<br>- A nova senha deve passar por validações de complexidade (mínimo de 8 caracteres, letras e números) antes de ser persistida.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ07, RQ08</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 7:</strong> Recuperação e Redefinição de Senha</p>
+<hr />
+<h3 id="hu08-justificativa-de-ausencia-academica">HU08 - Justificativa de Ausência Acadêmica</h3>
+<p>A tabela 8 mostra a história de usuário 8.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU08</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como professor ou administrador, desejo anexar e registrar justificativas legais (como atestados médicos) no perfil do aluno para abonar faltas sem comprometer o histórico de assiduidade.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O sistema deve permitir a alteração do status de uma falta para "Falta Justificada" no diário de classe.<br>- Deve disponibilizar um campo de texto para descrição do motivo e inserção do código de arquivamento do documento comprovatório.<br>- O histórico de relatórios deve discriminar claramente as faltas comuns das faltas justificadas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ14</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Média</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 9:</strong> Justificativa de Ausência Acadêmica</p>
+<hr />
+<h3 id="hu09-filtros-avancados-de-busca-e-consulta">HU09 - Filtros Avançados de Busca e Consulta</h3>
+<p>A tabela 9 mostra a história de usuário 9.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU09</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como professor ou coordenador, desejo filtrar a listagem de alunos por turma, nome, matrícula ou intervalo de datas para localizar registros específicos rapidamente durante auditorias.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- A barra de pesquisa deve executar consultas parciais (por nome ou parte da matrícula) atualizando a listagem em tela em tempo real.<br>- Os filtros por intervalo de datas devem restringir o histórico de chamadas exibido no painel de controle de turmas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ16</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Média</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 9:</strong> Filtros Avançados de Busca e Consulta</p>
+<hr />
+<h3 id="hu10-arquitetura-de-banco-de-dados-e-consistencia-relacional">HU10 - Arquitetura de Banco de Dados e Consistência Relacional</h3>
+<p>A tabela 10 mostra a história de usuário 10.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU10</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como desenvolvedor do sistema, desejo modelar uma estrutura de banco de dados robusta e relacional para garantir a integridade dos dados de alunos, turmas e frequências de forma modular.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O esquema do banco de dados deve utilizar chaves estrangeiras (FK) rígidas para impedir que uma chamada seja vinculada a uma turma ou aluno inexistente.<br>- A remoção de uma turma ou disciplina não deve apagar o histórico de chamadas passadas de forma destrutiva (implementar mecanismos de exclusão lógica ou restrições de integridade).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ11, RQ15 (Restrições de Arquitetura)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 10:</strong> Arquitetura de Banco de Dados e Consistência Relacional</p>
+<hr />
+<h3 id="hu11-desempenho-e-tempo-de-resposta-da-api-back-end">HU11 - Desempenho e Tempo de Resposta da API (Back-end)</h3>
+<p>A tabela 11 mostra a história de usuário 11.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU11</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como professor operando o sistema em sala de aula, desejo que as requisições de salvamento e listagem ocorram de forma extremamente ágil para evitar lentidões e filas no laboratório.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- As rotas críticas da API REST construídas em NestJS para o lançamento de chamadas e carregamento de listas devem responder em um tempo inferior a 2 segundos sob condições normais de rede.<br>- O sistema deve implementar paginação de dados nas listagens de alunos para otimizar o tráfego de rede e o consumo de memória no front-end.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ17 (Requisito Não Funcional de Performance)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 11:</strong> Desempenho e Tempo de Resposta da API</p>
+<h3 id="hu12-seguranca-da-informacao-e-controle-de-sessao">HU12 - Segurança da Informação e Controle de Sessão</h3>
+<p>A tabela 12 mostra a história de usuário 12.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">HU12</th>
+<th style="text-align: left;">Informações</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Descrição</strong></td>
+<td style="text-align: left;">Eu, como administrador da instituição, desejo que o sistema invalide sessões inativas e restrinja acessos diretos via URL para impedir que usuários não autenticados visualizem dados sigilosos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Critérios de Aceitação</strong></td>
+<td style="text-align: left;">- O sistema deve implementar autenticação baseada em tokens seguros (como JWT) com tempo de expiração definido.<br>- Tentativas de acesso direto a rotas protegidas (como <code>/dashboard</code> ou <code>/admin</code>) sem um token válido devem redirecionar o usuário imediatamente para a tela de login.<br>- Sessões sem atividade por mais de 30 minutos devem ser encerradas de forma automática pelo sistema.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rastreabilidade</strong></td>
+<td style="text-align: left;">RQ02, RQ19 (Requisito Não Funcional de Segurança)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prioridade</strong></td>
+<td style="text-align: left;">Alta</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementado</strong></td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tabela 12:</strong> Segurança da Informação e Controle de Sessão</p>
+<h2 id="bibliografia">Bibliografia</h2>
+<p><a id="FRM1" href="#anchor_1">1.</a> PRESSMAN, Roger S.; MAXIM, Bruce R.. Engenharia de software: uma abordagem profissional. 8 Porto Alegre: AMGH, 2016, 940 p.</p>
+<p><a id="FRM2" href="#anchor_2">2.</a> Bourque, P., Fairley, R. E. Guide to the Software Engineering Body of Knowledge, Version 3.0. SWEBOK. IEEE Computer Society, 2014. Disponível em: <a href="http://www.computer.org/web/swebok/v3">computer.org</a>. p. 38.</p>
+<h2 id="historico-de-versoes">Histórico de Versões</h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor</th>
+<th>Revisor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>05/06/2026</td>
+<td>Documentação da visão de produto</td>
+<td><a href="https://github.com/GeovannaUmbelino">Geovanna Alves</a></td>
+<td><a href="https://github.com/felipeserikava-web">Felipe Serikava</a>  e <a href="https://github.com/HunterBRR">Ronan Freitas</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
