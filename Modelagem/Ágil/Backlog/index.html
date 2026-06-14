@@ -1,0 +1,1782 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../HistoriaUsuario/">
+      
+      
+        <link rel="next" href="../../../An%C3%A1lise/Prototipacao/">
+      
+      
+      <link rel="icon" href="../../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Backlog - Sistema de Gestão de Presença</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backlog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Sistema de Gestão de Presença" class="md-header__button md-logo" aria-label="Sistema de Gestão de Presença" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sistema de Gestão de Presença
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backlog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="purple"  aria-label="Alternar para modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="orange"  aria-label="Alternar para modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Sobre/Sobre/" class="md-tabs__link">
+          
+  
+  Sobre
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Planejamento/Metodologia/" class="md-tabs__link">
+          
+  
+  Planejamento
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Atas/ata09-04/" class="md-tabs__link">
+          
+  
+  Atas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Pr%C3%A9-Rastriabilidade/Rich-picture/" class="md-tabs__link">
+          
+  
+  Pré-Rastreabilidade
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Elicita%C3%A7%C3%A3o/Perfil_usuario/" class="md-tabs__link">
+          
+  
+  Elicitação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Casos-de-uso/" class="md-tabs__link">
+          
+  
+  Modelagem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../An%C3%A1lise/Prototipacao/" class="md-tabs__link">
+          
+  
+  Análise
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sistema de Gestão de Presença" class="md-nav__button md-logo" aria-label="Sistema de Gestão de Presença" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    Sistema de Gestão de Presença
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Sobre
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sobre
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sobre/Sobre/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sobre/Visao_do_produto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão do Produto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sobre/Benchmarking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Benchmarking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Planejamento
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Planejamento
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Metodologia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metodologia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Ferramentas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ferramentas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Cronograma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cronograma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Planejamento/Heatmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heatmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Atas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Atas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Atas/ata09-04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Ata de Reunião(04/09)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Pré-Rastreabilidade
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Pré-Rastreabilidade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pr%C3%A9-Rastriabilidade/Rich-picture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rich Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pré-Rastriabilidade/Rich_pictureLV.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lista de verificação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Elicitação
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Elicitação
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Elicita%C3%A7%C3%A3o/Perfil_usuario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perfil de usuário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Elicita%C3%A7%C3%A3o/Requisitos-Elicitados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requisitos Elicitados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Priorização
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Priorização
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Elicita%C3%A7%C3%A3o/Prioriza%C3%A7%C3%A3o/Three_level_scale/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tree Level Scale
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Modelagem
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Modelagem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Casos-de-uso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Casos de Uso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Especificacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Especificação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ágil
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ágil
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HistoriaUsuario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Histórias de usuário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Backlog
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Backlog
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    Metodologia
+  </a>
+  
+    <nav class="md-nav" aria-label="Metodologia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#epicos" class="md-nav__link">
+    Épicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    Histórias de Usuário
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product-backlog" class="md-nav__link">
+    Product Backlog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product-backlog_1" class="md-nav__link">
+    Product Backlog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-1-autenticar" class="md-nav__link">
+    Épico 1 — Autenticar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-2-gerenciar-perfil" class="md-nav__link">
+    Épico 2 — Gerenciar Perfil
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-3-visualizar-dashboard" class="md-nav__link">
+    Épico 3 — Visualizar Dashboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-4-gerenciar-turmas" class="md-nav__link">
+    Épico 4 — Gerenciar Turmas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-5-controlar-frequencia" class="md-nav__link">
+    Épico 5 — Controlar Frequência
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-6-gerar-relatorios" class="md-nav__link">
+    Épico 6 — Gerar Relatórios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-7-area-do-aluno" class="md-nav__link">
+    Épico 7 — Área do Aluno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-8-requisitos-tecnicos" class="md-nav__link">
+    Épico 8 — Requisitos Técnicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-9-diferenciais" class="md-nav__link">
+    Épico 9 — Diferenciais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versoes" class="md-nav__link">
+    Histórico de Versões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ágil/NFR-Framework.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFR Framework
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Análise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Análise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../An%C3%A1lise/Prototipacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prototipação
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    Introdução
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    Metodologia
+  </a>
+  
+    <nav class="md-nav" aria-label="Metodologia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#epicos" class="md-nav__link">
+    Épicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historias-de-usuario" class="md-nav__link">
+    Histórias de Usuário
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product-backlog" class="md-nav__link">
+    Product Backlog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#product-backlog_1" class="md-nav__link">
+    Product Backlog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-1-autenticar" class="md-nav__link">
+    Épico 1 — Autenticar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-2-gerenciar-perfil" class="md-nav__link">
+    Épico 2 — Gerenciar Perfil
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-3-visualizar-dashboard" class="md-nav__link">
+    Épico 3 — Visualizar Dashboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-4-gerenciar-turmas" class="md-nav__link">
+    Épico 4 — Gerenciar Turmas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-5-controlar-frequencia" class="md-nav__link">
+    Épico 5 — Controlar Frequência
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-6-gerar-relatorios" class="md-nav__link">
+    Épico 6 — Gerar Relatórios
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-7-area-do-aluno" class="md-nav__link">
+    Épico 7 — Área do Aluno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-8-requisitos-tecnicos" class="md-nav__link">
+    Épico 8 — Requisitos Técnicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epico-9-diferenciais" class="md-nav__link">
+    Épico 9 — Diferenciais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versoes" class="md-nav__link">
+    Histórico de Versões
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="backlog">Backlog</h1>
+<h2 id="introducao">Introdução</h2>
+<p>O product backlog é um instrumento central na gestão ágil, atuando como o repositório oficial de todo o trabalho previsto para o projeto, incluindo novos recursos, refinamentos e correções de falhas. Sua função principal é orientar e estruturar o fluxo de trabalho do time de desenvolvimento, alinhando a evolução do software às necessidades do usuário e às metas estratégicas do negócio. Por se tratar de um artefato vivo e flexível, o backlog passa por constantes revisões e atualizações à medida que o escopo e o direcionamento do produto se transformam [1].</p>
+<h2 id="metodologia">Metodologia</h2>
+<p>A organização das histórias de usuário foi estruturada a partir de dois eixos temáticos principais:</p>
+<p>Funcionalidades: Compreende as capacidades operacionais necessárias para que o usuário execute suas tarefas com êxito.</p>
+<p>Perfil: Engloba as ferramentas que permitem ao usuário customizar o sistema conforme suas preferências e necessidades.</p>
+<h3 id="epicos">Épicos</h3>
+<p>Visando reduzir a abstração, os temas foram desdobrados em Épicos. Para este projeto, os épicos foram redigidos utilizando a estrutura padrão de histórias de usuário, incorporando uma camada intermediária de organização denominada Features.</p>
+<h3 id="features">Features</h3>
+<p>As Features consistem em descrições simplificadas das capacidades do produto, situando-se em um nível hierárquico superior ao das histórias de usuário. Elas definem, de maneira objetiva, como o software atende aos objetivos estratégicos dos usuários.</p>
+<h3 id="historias-de-usuario">Histórias de Usuário</h3>
+<p>As histórias de usuário detalham as Features e serão aprofundadas na seção dedicada deste documento. Elas funcionam como descrições concisas e de alto nível, focadas na perspectiva do cliente, usualmente seguindo a sintaxe: "Eu, como [papel], desejo [ação] para [valor/benefício]."</p>
+<h2 id="product-backlog">Product Backlog</h2>
+<p>O Product Backlog consolidado encontra-se apresentado na Tabela 2.</p>
+<h2 id="product-backlog_1">Product Backlog</h2>
+<p>A Tabela 2 apresenta o Product Backlog completo do sistema de gestão de presença acadêmica, organizado por épicos, features e histórias de usuário, com suas respectivas priorizações.</p>
+<p><font size="3"><p style="text-align: center">Tabela 2: Product Backlog — Sistema de Gestão de Presença Acadêmica</p></font></p>
+<div align="center">
+<table border="1" cellspacing="0" cellpadding="6">
+  <thead style="background-color:#E8610A; color:#ffffff;">
+    <tr>
+      <th>Épico</th>
+      <th>Feature</th>
+      <th>História de Usuário</th>
+      <th>Priorização</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 1<br/>Autenticar
+      </td>
+      <td rowspan="2">Feature 1 — Autenticação de Usuários</td>
+      <td><strong>US01</strong> — Cadastro de usuário com foto e tipo de perfil</td>
+      <td >Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US02</strong> — Login seguro com JWT e redirecionamento por role</td>
+      <td >Alta</td>
+    </tr>
+    <tr>
+      <td >
+        Épico 2<br/>Gerenciar Perfil
+      </td>
+      <td >Feature 1 — Perfil do Usuário</td>
+      <td><strong>US03</strong> — Visualizar e editar perfil pessoal do usuário</td>
+      <td >Média</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 3<br/>Visualizar Dashboard
+      </td>
+      <td rowspan="2">Feature 1 — Métricas Gerais</td>
+      <td><strong>US04</strong> — Visualizar dashboard com métricas do sistema</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US05</strong> — Visualizar gráficos dinâmicos de frequência</td>
+      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
+    </tr>
+    <tr>
+      <td rowspan="4" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 4<br/>Gerenciar Turmas
+      </td>
+      <td rowspan="3">Feature 1 — CRUD de Turmas</td>
+      <td><strong>US06</strong> — Criar turma com nome, código, horário e alunos</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US07</strong> — Editar dados de uma turma existente</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US08</strong> — Remover turma com exclusão lógica (soft delete)</td>
+      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
+    </tr>
+    <tr>
+      <td rowspan="1">Feature 2 — Visualização e Busca</td>
+      <td><strong>US09</strong> — Listar turmas e alunos com busca e filtro rápido</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td rowspan="3" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 5<br/>Controlar Frequência
+      </td>
+      <td rowspan="2">Feature 1 — Registro de Chamada</td>
+      <td><strong>US10</strong> — Registrar presença digital em aula (professor)</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US11</strong> — Visualizar histórico de frequência por turma</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td rowspan="1">Feature 2 — Carga Horária</td>
+      <td><strong>US12</strong> — Gerenciar automaticamente a carga horária das aulas</td>
+      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 6<br/>Gerar Relatórios
+      </td>
+      <td rowspan="2">Feature 1 — Relatórios do Professor</td>
+      <td><strong>US13</strong> — Gerar relatório consolidado de todas as turmas do professor</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US14</strong> — Gerar relatório detalhado por turma selecionada com exportação</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td rowspan="3" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 7<br/>Área do Aluno
+      </td>
+      <td rowspan="3">Feature 1 — Acompanhamento de Frequência</td>
+      <td><strong>US15</strong> — Visualizar turmas em que o aluno está matriculado</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US16</strong> — Visualizar histórico detalhado de presenças e faltas</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US17</strong> — Receber alertas automáticos de baixa frequência</td>
+      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
+    </tr>
+    <tr>
+      <td rowspan="5" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 8<br/>Requisitos Técnicos
+      </td>
+      <td rowspan="3">Feature 1 — Interface e Responsividade</td>
+      <td><strong>US18</strong> — Garantir layout responsivo em Desktop, Tablet e Mobile</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US19</strong> — Configurar stack obrigatória: Next.js, NestJS e SQLite</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US20</strong> — Criar protótipo com identidade visual da empresa</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Feature 2 — Entrega e Deploy</td>
+      <td><strong>US21</strong> — Versionar código no GitHub com README completo</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td><strong>US22</strong> — Configurar deploy automatizado via Vercel ou Netlify</td>
+      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
+        Épico 9<br/>Diferenciais
+      </td>
+      <td rowspan="2">Feature 1 — Experiência do Usuário</td>
+      <td><strong>US23</strong> — Implementar alternância de tema dark mode</td>
+      <td style="background-color:#E8F5E9; color:#2E7D32; font-weight:bold; text-align:center;">Baixa</td>
+    </tr>
+    <tr>
+      <td><strong>US24</strong> — Adicionar filtro e busca avançada de alunos</td>
+      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<p>Fonte:  <a href="https://github.com/GeovannaUmbelino">Geovanna Alves</a>, <a href="https://github.com/mel14-hub">Lara Souza</a>,  e <a href="https://github.com/Yanmatheus0812">Yan Matheus</a>.</p>
+<h2 id="epico-1-autenticar">Épico 1 — Autenticar</h2>
+<p>Esse épico apresenta as funcionalidades que permitem ao administrador, professor e aluno realizarem o cadastro e o login de forma segura na plataforma, com autenticação via JWT e redirecionamento automático por tipo de perfil.</p>
+<h2 id="epico-2-gerenciar-perfil">Épico 2 — Gerenciar Perfil</h2>
+<p>Esse épico apresenta as funcionalidades que permitem aos usuários visualizarem e editarem suas informações pessoais dentro da plataforma, como nome, e-mail e foto de perfil.</p>
+<h2 id="epico-3-visualizar-dashboard">Épico 3 — Visualizar Dashboard</h2>
+<p>Esse épico apresenta as funcionalidades que permitem ao administrador e ao professor visualizarem uma visão geral do sistema, com métricas como total de alunos, aulas cadastradas, taxa média de presença, alertas de baixa frequência e gráficos dinâmicos de desempenho.</p>
+<h2 id="epico-4-gerenciar-turmas">Épico 4 — Gerenciar Turmas</h2>
+<p>Esse épico apresenta as funcionalidades que permitem ao administrador criar, editar, remover e listar turmas, associando professores e alunos. Inclui também funcionalidades de busca e filtro para localização rápida.</p>
+<h2 id="epico-5-controlar-frequencia">Épico 5 — Controlar Frequência</h2>
+<p>Esse épico apresenta as funcionalidades que permitem ao professor registrar a presença dos alunos de forma estritamente digital, eliminando o uso de papel e prevenindo fraudes como a assinatura por terceiros. Inclui também o gerenciamento automático da carga horária das aulas.</p>
+<h2 id="epico-6-gerar-relatorios">Épico 6 — Gerar Relatórios</h2>
+<p>Esse épico apresenta as funcionalidades que permitem ao professor gerar relatórios de frequência de forma consolidada (todas as turmas) e detalhada (por turma selecionada), com visualização de gráficos e opção de exportação em PDF ou CSV.</p>
+<h2 id="epico-7-area-do-aluno">Épico 7 — Área do Aluno</h2>
+<p>Esse épico apresenta as funcionalidades voltadas ao aluno, permitindo que ele visualize as turmas em que está matriculado, consulte o histórico detalhado de presenças e faltas, e receba alertas automáticos quando a frequência estiver abaixo do mínimo exigido.</p>
+<h2 id="epico-8-requisitos-tecnicos">Épico 8 — Requisitos Técnicos</h2>
+<p>Esse épico apresenta as histórias de usuário relacionadas à infraestrutura técnica do projeto: responsividade da interface, configuração da stack obrigatória (Next.js, NestJS e SQLite), prototipagem com a identidade visual da empresa, versionamento no GitHub e deploy automatizado.</p>
+<h2 id="epico-9-diferenciais">Épico 9 — Diferenciais</h2>
+<p>Esse épico apresenta as funcionalidades extras que agregam valor à experiência do usuário, como a alternância de tema (dark mode) e o sistema de filtro e busca avançada de alunos.</p>
+<p>Fonte:  <a href="https://github.com/GeovannaUmbelino">Geovanna Alves</a>, <a href="https://github.com/mel14-hub">Lara Souza</a>,  e <a href="https://github.com/Yanmatheus0812">Yan Matheus</a>.</p>
+<h2 id="historico-de-versoes">Histórico de Versões</h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor</th>
+<th>Revisor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>05/06/2026</td>
+<td>Documentação da visão de produto</td>
+<td><a href="https://github.com/GeovannaUmbelino">Geovanna Alves</a>, <a href="https://github.com/felipeserikava-web">Felipe Serikava</a> e <a href="https://github.com/HunterBRR">Ronan Freitas</a></td>
+<td><a href="https://github.com/felipeserikava-web">Felipe Serikava</a> e <a href="https://github.com/HunterBRR">Ronan Freitas</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
