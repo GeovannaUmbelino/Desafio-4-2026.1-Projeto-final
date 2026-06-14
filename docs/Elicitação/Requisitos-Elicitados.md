@@ -2,7 +2,7 @@
 
 ## Introdução
 
-- Essa página reune todos os requisitos elicitados usando a técnicas de Análise de documentação.
+Essa página reune todos os requisitos elicitados usando a técnicas de Análise de documentação.
 
 ## Participantes
 

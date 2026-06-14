@@ -3,8 +3,8 @@ repo_url:
 theme:
   name: material
   custom_dir: overrides
-  logo: img\logo.png
-  favicon: img\logo.png
+  logo: img\logo_acessa.png
+  favicon: img\logo_acessa1.png
   features:
     - navigation.tabs
     - navigation.top

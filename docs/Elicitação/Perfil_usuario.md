@@ -21,19 +21,19 @@ A seguir temos a tabela 1, onde indica todos os participantes da criação do Pe
         <tr>
         <td><a href="https://github.com/felipeserikava-web">Felipe Serikava</a></td>
          <td>05/06/2026</td>
-        <td>Criação do perfil de usuário através da elaboração do questionário</td>
+        <td>Criação do perfil de usuário através da descrição do desafio 4</td>
       </tr>
       <tr>
         <tr>
         <td><a href="https://github.com/GeovannaUmbelino">Geovanna Alves</a></td>
          <td>05/06/2026</td>
-        <td>Criação do perfil de usuário através da gravação das entrevistas e questionário</td>
+        <td>Criação do perfil de usuário através da descrição do desafio 4</td>
       </tr>
       <tr>
         <tr>
         <td><a href="https://github.com/HunterBRR">Ronan Freitas</a></td>
          <td>05/06/2026</td>
-        <td>Criação do perfil de usuário através da gravação das entrevistas</td>
+        <td>Criação do perfil de usuário através da descrição do desafio 4</td>
       </tr>
     </tbody>
   </table>
@@ -52,7 +52,6 @@ As fontes utilizadas para a construção dos perfis foram:
 - Requisitos elicitados (RQ1 a RQ22);
 - Boas práticas de engenharia de requisitos e design centrado no usuário.
 
----
 
 ### Usuário 1 - Administrador
 
@@ -79,7 +78,6 @@ O Administrador é o responsável pela configuração e manutenção geral da pl
 <br>RQ4 — Criar, editar, remover e listar turmas
 <br>RQ6 — Geração de relatórios
 
----
 
 ### Usuário 2 - Professor
 
@@ -109,7 +107,6 @@ O Professor é o principal operador do controle de presença. É responsável po
 <br>RQ17 — Gráficos de frequência
 <br>RQ18 — Filtro e busca de alunos
 
----
 
 ### Usuário 3 - Aluno
 
@@ -135,7 +132,6 @@ O Aluno é o usuário final que consome as informações sobre sua própria freq
 <br>RQ5 — Visualizar histórico próprio
 <br>RQ17 — Gráficos de frequência (visão do aluno)
 
----
 
 
 ## Bibliografia

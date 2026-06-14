@@ -2,7 +2,7 @@
 
 <div align="center">
    <a href="" target="_blank">
-        <img src="https://i.postimg.cc/QCGThy4P/logo.png" height="70" alt=""/>
+        <img src="https://i.postimg.cc/J0vYVbKr/logo-acessa.png" height="70" alt=""/>
     </a>
 </div>
 
