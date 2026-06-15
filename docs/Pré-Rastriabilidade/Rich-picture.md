@@ -9,20 +9,22 @@ Aplicando esse conceito ao projeto , a Rich Picture tem o papel de ilustrar o si
 A elaboração dos recursos visuais centrais do projeto teve o Draw.io como ferramenta indispensável. Por meio dele, construímos a Rich Picture acompanhada de sua legenda. Esses elementos gráficos, que podem ser observados nas Figuras 1 e 2, são de extrema importância para o entendimento global da abrangência e do cenário do nosso trabalho.
 
 
-<font size="3"><p style="text-align: center">Figura 1: Richpicture versão 1.</p></font>
+<font size="3"><p  align="center" style="text-align: center">Figura 1: Richpicture versão 1.</p></font>
 
-![Richpicturev1]()
+![Richpicturev1](https://i.postimg.cc/RhRLNBQF/richpicture-acessa.png)
 
-<font size="3"><p style="text-align: center">Fonte: [Geovanna Alves](https://github.com/GeovannaUmbelino).</p></font>
+<font size="3"><p  align="center" style="text-align: center">Fonte: [Geovanna Alves](https://github.com/GeovannaUmbelino).</p></font>
 
 ## Legenda 
 Para estruturar as Rich Pictures, utilizamos cinco componentes fundamentais propostos por Revadi (2018, p. 4): atores, operações, armazenamento de dados, setas e a fronteira do sistema. Como é possível notar na Imagem 2, esses recursos são indispensáveis para ilustrar adequadamente o cenário em que o projeto está inserido.
 
-<font size="3"><p style="text-align: center">Figura 2: Legenda versão 1.</p></font>
+<font size="3"><p  align="center" style="text-align: center">Figura 2: Legenda versão 1.</p></font>
 
-![Legendav1]()
+<div align="center">
+  <img src="https://i.postimg.cc/d34GJ9JM/legendarichpicture-acessa.png" alt="Legendav1">
+</div>
 
-<font size="3"><p style="text-align: center">Fonte:  [Geovanna Alves](https://github.com/GeovannaUmbelino).</p></font>
+<font size="3"><p  align="center" style="text-align: center">Fonte:  [Geovanna Alves](https://github.com/GeovannaUmbelino).</p></font>
 
 ## Bibliografia
 
@@ -34,3 +36,4 @@ Para estruturar as Rich Pictures, utilizamos cinco componentes fundamentais prop
 | Versão | Data       | Descrição                                     | Autor                                                                                                                                                                                                                                                                                                      | Revisor                                               |
 | ------ | ---------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | 1.0    | 11/06/2026 | Elaboração do Rich picture   |  [Geovanna Alves](https://github.com/GeovannaUmbelino) | [Felipe Serikava](https://github.com/felipeserikava-web)  e [Ronan Freitas](https://github.com/HunterBRR)|
+ 1.1    | 15/06/2026 | Adicionado imagem do richpicture e da legenda  |  [Geovanna Alves](https://github.com/GeovannaUmbelino) | [Felipe Serikava](https://github.com/felipeserikava-web)  e [Ronan Freitas](https://github.com/HunterBRR)|
