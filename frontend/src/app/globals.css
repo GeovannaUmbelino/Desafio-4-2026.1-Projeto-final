@@ -1,9 +1,12 @@
+@import "tailwindcss";
 
 
+@theme {
+  --color-laranja: #FF6B00;
+  --color-roxo: #9B59B6;
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
 
 .card-numero:hover {
   transform: translateY(-4px);

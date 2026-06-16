@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Adicione esta linha:
+  turbopack: {}, 
+  
+  // Se você tiver outras configurações aqui, mantenha-as.
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -1,63 +1,72 @@
 import {
-  Controller,
-  Post,
   Body,
+  Controller,
+  Delete,
   Get,
   Param,
   Patch,
-  Delete,
+  Post,
 } from '@nestjs/common';
 import { ClassesService } from './classes.service';
-import { UpdateClassDto } from './dto/update-class.dto';
 import { CreateClassDto } from './dto/create-class.dto';
+import { UpdateClassDto } from './dto/update-class.dto';
+import { Roles, CurrentUser } from '../common/decorators';
+import { User, UserRole } from '../users/entities/user.entity';
 
 @Controller('classes')
 export class ClassesController {
   constructor(private readonly classesService: ClassesService) {}
 
-  // 1. CRIAÇÃO DE TURMAS
   @Post()
-  create(@Body() createClassDto: CreateClassDto) {
-    const { name, code, teacherId, schedule } = createClassDto;
-    return this.classesService.createClass(name, code, teacherId, schedule);
+  @Roles(UserRole.ADMIN)
+  create(@Body() dto: CreateClassDto) {
+    return this.classesService.create(dto);
   }
 
-  // 2. MATRÍCULA DE ALUNOS
-  @Patch(':id/enroll')
-  enrollStudent(
-    @Param('id') classId: string,
-    @Body('studentId') studentId: string,
-  ) {
-    return this.classesService.enrollStudent(classId, studentId);
+  @Get()
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
+  findAll(@CurrentUser() user: User) {
+    if (user.role === UserRole.ADMIN) {
+      return this.classesService.findAll();
+    }
+    return this.classesService.findByTeacher(user.id);
   }
 
-  // 3. LISTAGEM POR PROFESSOR
+  // GET /classes/all — todas as turmas (aluno usa para filtrar as suas)
+  @Get('all')
+  findAllPublic() {
+    return this.classesService.findAll();
+  }
+
+  // GET /classes/teacher/:teacherId — turmas de um professor específico
   @Get('teacher/:teacherId')
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
   findByTeacher(@Param('teacherId') teacherId: string) {
     return this.classesService.findByTeacher(teacherId);
   }
 
-  // 4. LISTAGEM POR ALUNO
-  @Get('student/:studentId')
-  findByStudent(@Param('studentId') studentId: string) {
-    return this.classesService.findByStudent(studentId);
-  }
-
-  // 5. DASHBOARD DA TURMA
+  // GET /classes/:id/dashboard — dados da turma para relatórios
   @Get(':id/dashboard')
-  getClassDashboard(@Param('id') id: string) {
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
+  getDashboard(@Param('id') id: string) {
     return this.classesService.getClassDashboardData(id);
   }
 
-  // 6. EDIÇÃO DE TURMAS
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateClassDto: UpdateClassDto) {
-    return this.classesService.updateClass(id, updateClassDto);
+  @Get(':id')
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
+  findOne(@Param('id') id: string) {
+    return this.classesService.findOne(id);
   }
 
-  // 7. EXCLUSÃO DE TURMAS
+  @Patch(':id')
+  @Roles(UserRole.ADMIN)
+  update(@Param('id') id: string, @Body() dto: UpdateClassDto) {
+    return this.classesService.update(id, dto);
+  }
+
   @Delete(':id')
+  @Roles(UserRole.ADMIN)
   remove(@Param('id') id: string) {
-    return this.classesService.removeClass(id);
+    return this.classesService.remove(id);
   }
 }

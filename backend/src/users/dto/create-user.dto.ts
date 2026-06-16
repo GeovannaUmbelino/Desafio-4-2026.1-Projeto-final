@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsString, IsEmail, IsEnum } from 'class-validator';
+import { UserRole } from '../entities/user.entity';
 
 export class CreateUserDto {
   @IsNotEmpty({ message: 'O nome do usuário é obrigatório.' })
@@ -14,8 +15,10 @@ export class CreateUserDto {
   password!: string;
 
   @IsNotEmpty({ message: 'O cargo/função é obrigatório.' })
-  @IsEnum(['professor', 'aluno'], {
-    message: 'O papel deve ser professor ou aluno.',
+
+ @IsEnum(UserRole, { 
+    message: 'O papel deve ser admin, professor ou aluno.',
   })
-  role!: string;
+  
+  role!: UserRole; 
 }

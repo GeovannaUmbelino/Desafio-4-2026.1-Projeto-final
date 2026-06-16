@@ -1,5 +1,10 @@
-//criação das tabelas de entidades de usuários.
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+
+export enum UserRole {
+  ADMIN = 'admin',
+  PROFESSOR = 'professor',
+  ALUNO = 'aluno',
+}
 
 @Entity('users')
 export class User {
@@ -15,6 +20,17 @@ export class User {
   @Column()
   password!: string;
 
-  @Column({ default: 'professor' })
-  role!: string;
+  @Column({ type: 'text', default: UserRole.PROFESSOR })
+  role!: UserRole;
+
+  // Campo para matrícula (obrigatório para alunos, opcional para professores)
+  @Column({ nullable: true })
+  matricula?: string;
+
+  // Permite desativar uma conta sem deletar
+  @Column({ default: true })
+  isActive!: boolean;
+
+  @CreateDateColumn()
+  createdAt!: Date;
 }

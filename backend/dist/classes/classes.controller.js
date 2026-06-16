@@ -1,0 +1,123 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ClassesController = void 0;
+const common_1 = require("@nestjs/common");
+const classes_service_1 = require("./classes.service");
+const create_class_dto_1 = require("./dto/create-class.dto");
+const update_class_dto_1 = require("./dto/update-class.dto");
+const decorators_1 = require("../common/decorators");
+const user_entity_1 = require("../users/entities/user.entity");
+let ClassesController = class ClassesController {
+    classesService;
+    constructor(classesService) {
+        this.classesService = classesService;
+    }
+    create(dto) {
+        return this.classesService.create(dto);
+    }
+    findAll(user) {
+        if (user.role === user_entity_1.UserRole.ADMIN) {
+            return this.classesService.findAll();
+        }
+        return this.classesService.findByTeacher(user.id);
+    }
+    findAllPublic() {
+        return this.classesService.findAll();
+    }
+    findByTeacher(teacherId) {
+        return this.classesService.findByTeacher(teacherId);
+    }
+    getDashboard(id) {
+        return this.classesService.getClassDashboardData(id);
+    }
+    findOne(id) {
+        return this.classesService.findOne(id);
+    }
+    update(id, dto) {
+        return this.classesService.update(id, dto);
+    }
+    remove(id) {
+        return this.classesService.remove(id);
+    }
+};
+exports.ClassesController = ClassesController;
+__decorate([
+    (0, common_1.Post)(),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.ADMIN),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_class_dto_1.CreateClassDto]),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
+    __param(0, (0, decorators_1.CurrentUser)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_entity_1.User]),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('all'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "findAllPublic", null);
+__decorate([
+    (0, common_1.Get)('teacher/:teacherId'),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
+    __param(0, (0, common_1.Param)('teacherId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "findByTeacher", null);
+__decorate([
+    (0, common_1.Get)(':id/dashboard'),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "getDashboard", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.ADMIN),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_class_dto_1.UpdateClassDto]),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.ADMIN),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ClassesController.prototype, "remove", null);
+exports.ClassesController = ClassesController = __decorate([
+    (0, common_1.Controller)('classes'),
+    __metadata("design:paramtypes", [classes_service_1.ClassesService])
+], ClassesController);
+//# sourceMappingURL=classes.controller.js.map
