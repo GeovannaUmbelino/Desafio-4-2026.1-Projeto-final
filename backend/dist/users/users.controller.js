@@ -15,80 +15,81 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
-const current_user_decorator_1 = require("../common/decorators/current-user.decorator");
-const roles_decorator_1 = require("../common/decorators/roles.decorator");
+const decorators_1 = require("../common/decorators");
 const user_entity_1 = require("./entities/user.entity");
 let UsersController = class UsersController {
     usersService;
     constructor(usersService) {
         this.usersService = usersService;
     }
-    getProfile(user) {
-        return this.usersService.findOne(user.id);
+    async getMe(user) {
+        return user;
     }
-    findAll() {
+    async findAll() {
         return this.usersService.findAll();
     }
-    updateProfile(user, updateData) {
-        return this.usersService.update(user.id, updateData);
+    async findByIds(ids) {
+        if (!ids)
+            return [];
+        const idArray = ids.split(',');
+        return this.usersService.findByIds(idArray);
     }
-    deleteAccount(user) {
-        return this.usersService.remove(user.id);
-    }
-    findByIds(ids) {
-        const idList = ids ? ids.split(',').map(id => id.trim()).filter(Boolean) : [];
-        return this.usersService.findByIds(idList);
-    }
-    findOne(id) {
+    async findOne(id) {
         return this.usersService.findOne(id);
+    }
+    async updateMe(user, updateDto) {
+        return this.usersService.update(user.id, updateDto);
+    }
+    async deleteMe(user) {
+        return this.usersService.remove(user.id);
     }
 };
 exports.UsersController = UsersController;
 __decorate([
     (0, common_1.Get)('me'),
-    __param(0, (0, current_user_decorator_1.CurrentUser)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [user_entity_1.User]),
-    __metadata("design:returntype", void 0)
-], UsersController.prototype, "getProfile", null);
-__decorate([
-    (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)(user_entity_1.UserRole.ADMIN),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], UsersController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Patch)('me'),
-    __param(0, (0, current_user_decorator_1.CurrentUser)()),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [user_entity_1.User, Object]),
-    __metadata("design:returntype", void 0)
-], UsersController.prototype, "updateProfile", null);
-__decorate([
-    (0, common_1.Delete)('me'),
-    __param(0, (0, current_user_decorator_1.CurrentUser)()),
+    __param(0, (0, decorators_1.CurrentUser)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_entity_1.User]),
     __metadata("design:returntype", Promise)
-], UsersController.prototype, "deleteAccount", null);
+], UsersController.prototype, "getMe", null);
+__decorate([
+    (0, common_1.Get)(),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.ADMIN, user_entity_1.UserRole.PROFESSOR),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)('by-ids'),
-    (0, roles_decorator_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.ADMIN, user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ALUNO),
     __param(0, (0, common_1.Query)('ids')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findByIds", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, roles_decorator_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.ADMIN, user_entity_1.UserRole.PROFESSOR),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)('me'),
+    __param(0, (0, decorators_1.CurrentUser)()),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_entity_1.User, Object]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "updateMe", null);
+__decorate([
+    (0, common_1.Delete)('me'),
+    __param(0, (0, decorators_1.CurrentUser)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_entity_1.User]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "deleteMe", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

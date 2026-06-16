@@ -8,6 +8,6 @@ import { Class } from './entities/class.entity';
   imports: [TypeOrmModule.forFeature([Class])],
   controllers: [ClassesController],
   providers: [ClassesService],
-  exports: [ClassesService],
+  exports: [ClassesService, TypeOrmModule], // Permite o cruzamento de dados com diários e relatórios
 })
 export class ClassesModule {}

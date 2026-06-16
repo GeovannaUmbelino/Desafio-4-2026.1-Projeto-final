@@ -16,16 +16,15 @@ import { RolesGuard } from '../common/guards/roles.guard';
     TypeOrmModule.forFeature([User]),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-        secret: process.env.JWT_SECRET || 'squad_newtons_dev',
-        signOptions: { 
-        expiresIn: (process.env.JWT_EXPIRES_IN || '8h') as any 
-  },
-}),
+      secret: process.env.JWT_SECRET || 'squad_newtons_dev',
+      signOptions: { 
+        expiresIn: (process.env.JWT_EXPIRES_IN || '1d') as any 
+      },
+    }),
   ],
   providers: [
     AuthService,
     JwtStrategy,
-  
     { provide: APP_GUARD, useClass: JwtAuthGuard },
     { provide: APP_GUARD, useClass: RolesGuard },
   ],

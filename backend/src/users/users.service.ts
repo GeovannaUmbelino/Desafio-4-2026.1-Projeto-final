@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
-import * as bcrypt from 'bcrypt'; // BUG CORRIGIDO #6: importar bcrypt
+import * as bcrypt from 'bcrypt'; 
 
 @Injectable()
 export class UsersService {
@@ -13,7 +13,6 @@ export class UsersService {
   ) {}
 
   // Função para criar usuário
-  // BUG CORRIGIDO #6: senha agora é armazenada com hash bcrypt
   async createUser(createUserDto: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
     const newUser = this.userRepository.create({
@@ -22,7 +21,7 @@ export class UsersService {
     });
     const saved = await this.userRepository.save(newUser);
 
-    // Nunca retornar a senha, nem com hash
+    
     const { password: _password, ...userWithoutPassword } = saved;
     return userWithoutPassword;
   }
@@ -43,7 +42,7 @@ export class UsersService {
     return users.map(({ password: _p, ...u }) => u);
   }
 
-  // Função para encontrar usuário por email (útil para login futuro)
+  
   async findByEmail(email: string): Promise<User | null> {
     return this.userRepository.findOne({ where: { email } });
   }
@@ -66,7 +65,7 @@ export class UsersService {
     const user = await this.userRepository.findOne({ where: { id } });
     if (!user) throw new NotFoundException('Usuário não encontrado');
 
-    // Se estiver atualizando senha, fazer hash
+    
     if (updateUserData.password) {
       updateUserData.password = await bcrypt.hash(updateUserData.password, 10);
     }

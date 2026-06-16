@@ -4,7 +4,7 @@ import { AuthProvider } from '@/contexts/AuthContext';
 import { DataProvider } from '@/contexts/DataContext';
 
 export const metadata: Metadata = {
-  title: 'EngNet — Gestão de Presença',
+  title: 'Acessa - Gestão de Presença-Acadêmica',
   description: 'Sistema de gestão de presença acadêmica',
 };
 

@@ -18,75 +18,112 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const class_entity_1 = require("./entities/class.entity");
 let ClassesService = class ClassesService {
-    classRepository;
-    constructor(classRepository) {
-        this.classRepository = classRepository;
+    classRepo;
+    constructor(classRepo) {
+        this.classRepo = classRepo;
     }
     async create(dto) {
-        const newClass = this.classRepository.create({
-            ...dto,
-            studentIds: [],
-        });
-        return this.classRepository.save(newClass);
+        try {
+            const novaTurma = this.classRepo.create({
+                name: dto.name,
+                code: dto.code,
+                schedule: dto.schedule,
+                teacherId: dto.teacherId,
+                studentIds: [],
+            });
+            return await this.classRepo.save(novaTurma);
+        }
+        catch (error) {
+            console.error('❌ [ERRO AO CRIAR TURMA] Falha ao salvar no SQLite:', error);
+            throw new Error(`Não foi possível salvar a turma: ${error.message}`);
+        }
     }
-    async findAll() {
-        return this.classRepository.find();
+    async addStudent(classId, studentId) {
+        try {
+            const turma = await this.classRepo.findOne({ where: { id: classId } });
+            if (!turma)
+                throw new common_1.NotFoundException('Turma não localizada.');
+            let alunosAtuais = [];
+            if (turma.studentIds) {
+                if (typeof turma.studentIds === 'string') {
+                    try {
+                        alunosAtuais = JSON.parse(turma.studentIds);
+                    }
+                    catch {
+                        alunosAtuais = [];
+                    }
+                }
+                else if (Array.isArray(turma.studentIds)) {
+                    alunosAtuais = turma.studentIds;
+                }
+            }
+            const idLimpo = String(studentId).trim().toLowerCase();
+            const jaMatriculado = alunosAtuais.map(id => String(id).trim().toLowerCase()).includes(idLimpo);
+            if (jaMatriculado) {
+                return turma;
+            }
+            alunosAtuais.push(studentId);
+            turma.studentIds = alunosAtuais;
+            return await this.classRepo.save(turma);
+        }
+        catch (error) {
+            console.error('❌ [ERRO MATRÍCULA] Falha ao injetar aluno no array:', error);
+            throw new Error(`Erro ao matricular: ${error.message}`);
+        }
+    }
+    async findAll(user) {
+        try {
+            const todasAsTurmas = await this.classRepo.find();
+            if (!user)
+                return todasAsTurmas;
+            if (user.role === 'admin') {
+                return todasAsTurmas;
+            }
+            if (user.role === 'aluno') {
+                return todasAsTurmas.filter(turma => {
+                    if (!turma.studentIds)
+                        return false;
+                    let ids = [];
+                    try {
+                        if (typeof turma.studentIds === 'string') {
+                            const parsed = JSON.parse(turma.studentIds);
+                            ids = Array.isArray(parsed) ? parsed : [turma.studentIds];
+                        }
+                        else if (Array.isArray(turma.studentIds)) {
+                            ids = turma.studentIds;
+                        }
+                    }
+                    catch {
+                        ids = String(turma.studentIds).split(',');
+                    }
+                    return ids.map(id => String(id).trim().toLowerCase()).includes(String(user.id).trim().toLowerCase());
+                });
+            }
+            if (user.id) {
+                return todasAsTurmas.filter(turma => String(turma.teacherId).trim() === String(user.id).trim());
+            }
+            return [];
+        }
+        catch (error) {
+            console.error('❌ [ERRO LISTAGEM] Falha ao buscar disciplinas:', error.message);
+            return [];
+        }
     }
     async findOne(id) {
-        const targetClass = await this.classRepository.findOne({ where: { id } });
-        if (!targetClass) {
-            throw new common_1.NotFoundException('Turma não encontrada.');
+        try {
+            const turma = await this.classRepo.findOne({ where: { id } });
+            if (!turma) {
+                throw new common_1.NotFoundException(`Turma com o ID ${id} não localizada.`);
+            }
+            return turma;
         }
-        return targetClass;
-    }
-    async findByTeacher(teacherId) {
-        return this.classRepository.find({ where: { teacherId } });
-    }
-    async update(id, dto) {
-        const targetClass = await this.classRepository.findOne({ where: { id } });
-        if (!targetClass) {
-            throw new common_1.NotFoundException('Turma não encontrada para atualização.');
+        catch (error) {
+            throw new common_1.NotFoundException(`Erro ao buscar turma: ${error.message}`);
         }
-        Object.assign(targetClass, dto);
-        return this.classRepository.save(targetClass);
     }
     async remove(id) {
-        const targetClass = await this.classRepository.findOne({ where: { id } });
-        if (!targetClass) {
-            throw new common_1.NotFoundException('Turma não encontrada para exclusão.');
-        }
-        await this.classRepository.remove(targetClass);
-    }
-    async enrollStudent(classId, studentId) {
-        const targetClass = await this.classRepository.findOne({ where: { id: classId } });
-        if (!targetClass) {
-            throw new common_1.NotFoundException('Turma não encontrada.');
-        }
-        if (!targetClass.studentIds) {
-            targetClass.studentIds = [];
-        }
-        if (!targetClass.studentIds.includes(studentId)) {
-            targetClass.studentIds.push(studentId);
-        }
-        return this.classRepository.save(targetClass);
-    }
-    async findByStudent(studentId) {
-        const allClasses = await this.classRepository.find();
-        return allClasses.filter((c) => c.studentIds && c.studentIds.includes(studentId));
-    }
-    async getClassDashboardData(id) {
-        const targetClass = await this.classRepository.findOne({ where: { id } });
-        if (!targetClass) {
-            throw new common_1.NotFoundException('Turma não encontrada.');
-        }
-        return {
-            id: targetClass.id,
-            name: targetClass.name,
-            code: targetClass.code,
-            schedule: targetClass.schedule,
-            totalStudents: targetClass.studentIds ? targetClass.studentIds.length : 0,
-            studentIds: targetClass.studentIds || [],
-        };
+        const turma = await this.findOne(id);
+        return await this.classRepo.remove(turma);
     }
 };
 exports.ClassesService = ClassesService;

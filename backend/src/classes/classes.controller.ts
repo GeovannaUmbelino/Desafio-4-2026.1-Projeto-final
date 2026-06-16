@@ -1,15 +1,13 @@
 import {
-  Body,
   Controller,
-  Delete,
   Get,
-  Param,
-  Patch,
   Post,
+  Patch,
+  Body,
+  Param,
+  Delete,
 } from '@nestjs/common';
 import { ClassesService } from './classes.service';
-import { CreateClassDto } from './dto/create-class.dto';
-import { UpdateClassDto } from './dto/update-class.dto';
 import { Roles, CurrentUser } from '../common/decorators';
 import { User, UserRole } from '../users/entities/user.entity';
 
@@ -17,56 +15,51 @@ import { User, UserRole } from '../users/entities/user.entity';
 export class ClassesController {
   constructor(private readonly classesService: ClassesService) {}
 
+  // POST /classes — Cria uma nova turma (Admin e Professor)
   @Post()
-  @Roles(UserRole.ADMIN)
-  create(@Body() dto: CreateClassDto) {
-    return this.classesService.create(dto);
-  }
-
-  @Get()
   @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  findAll(@CurrentUser() user: User) {
-    if (user.role === UserRole.ADMIN) {
-      return this.classesService.findAll();
-    }
-    return this.classesService.findByTeacher(user.id);
+  async create(@Body() dto: any, @CurrentUser() user: User) {
+    const teacherId = user.role === 'admin' ? dto.teacherId : user.id;
+    return this.classesService.create({
+      name: dto.name,
+      code: dto.code,
+      schedule: dto.schedule,
+      teacherId: teacherId,
+    });
   }
 
-  // GET /classes/all — todas as turmas (aluno usa para filtrar as suas)
-  @Get('all')
-  findAllPublic() {
-    return this.classesService.findAll();
-  }
-
-  // GET /classes/teacher/:teacherId — turmas de um professor específico
-  @Get('teacher/:teacherId')
+  // PATCH /classes/:id/add-student — Vincula aluno ao array studentIds da turma
+  @Patch(':id/add-student')
   @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  findByTeacher(@Param('teacherId') teacherId: string) {
-    return this.classesService.findByTeacher(teacherId);
+  async addStudent(@Param('id') classId: string, @Body() dto: any) {
+    return this.classesService.addStudent(classId, dto.studentId);
   }
 
-  // GET /classes/:id/dashboard — dados da turma para relatórios
-  @Get(':id/dashboard')
+  // 📝 CORREÇÃO AQUI: Passando um array no @Get, o NestJS passa a aceitar tanto "/classes" quanto "/classes/all"
+  @Get(['', 'all'])
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN, UserRole.ALUNO)
+  async findAll(@CurrentUser() user: User) {
+    return this.classesService.findAll(user);
+  }
+
+  // GET /classes/teacher/:id — Busca de turmas por ID de professor
+  @Get('teacher/:id')
   @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  getDashboard(@Param('id') id: string) {
-    return this.classesService.getClassDashboardData(id);
+  async findByTeacher(@Param('id') teacherId: string) {
+    return this.classesService.findAll({ id: teacherId, role: 'professor' });
   }
 
+  // GET /classes/:id — Detalhes de uma turma específica
   @Get(':id')
-  @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  findOne(@Param('id') id: string) {
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN, UserRole.ALUNO)
+  async findOne(@Param('id') id: string) {
     return this.classesService.findOne(id);
   }
 
-  @Patch(':id')
-  @Roles(UserRole.ADMIN)
-  update(@Param('id') id: string, @Body() dto: UpdateClassDto) {
-    return this.classesService.update(id, dto);
-  }
-
+  // DELETE /classes/:id — Remove uma turma (Apenas Admin)
   @Delete(':id')
   @Roles(UserRole.ADMIN)
-  remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string) {
     return this.classesService.remove(id);
   }
 }

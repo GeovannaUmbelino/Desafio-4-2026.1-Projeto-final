@@ -1,32 +1,75 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UseInterceptors,
+  UploadedFile,
+  Get,
+  Delete,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
 import { AuthService } from './auth.service';
 import { LoginDto, RegisterDto } from './dto/auth.dto';
-import { Public } from '../common/decorators/public.decorator';
-import { CurrentUser } from '../common/decorators/current-user.decorator';
-import { User } from '../users/entities/user.entity';
+import { Roles, CurrentUser, Public } from '../common/decorators';
+import { User, UserRole } from '../users/entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  // POST /auth/register — público, não precisa de token
+  
   @Public()
   @Post('register')
-  register(@Body() dto: RegisterDto) {
-    return this.authService.register(dto);
+  @UseInterceptors(
+    FileInterceptor('foto', {
+      storage: diskStorage({
+        destination: './uploads/perfis',
+        filename: (req, file, cb) => {
+          const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+          cb(null, `${uniqueSuffix}${extname(file.originalname)}`);
+        },
+      }),
+      fileFilter: (req, file, cb) => {
+        if (!file.mimetype.match(/\/(jpg|jpeg|png)$/)) {
+          return cb(new Error('Apenas imagens nos formatos JPG, JPEG ou PNG são permitidas!'), false);
+        }
+        cb(null, true);
+      },
+    }),
+  )
+  async register(
+    @Body() dto: RegisterDto,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    
+    let fotoUrl: string | null = null;
+    if (file) {
+      fotoUrl = `http://localhost:3001/uploads/perfis/${file.filename}`;
+    }
+
+    return this.authService.register({ ...dto, fotoUrl });
   }
 
-  // POST /auth/login — público, não precisa de token
+  // valida credenciais
   @Public()
   @Post('login')
-  @HttpCode(HttpStatus.OK)
-  login(@Body() dto: LoginDto) {
+  async login(@Body() dto: LoginDto) {
     return this.authService.login(dto);
   }
 
-  // GET /auth/me — protegido, precisa de Bearer token
-  @Get('me')
-  getProfile(@CurrentUser() user: User) {
+  // retorna dados do usuário logado
+  @Get('profile')
+  @Roles(UserRole.ALUNO, UserRole.PROFESSOR, UserRole.ADMIN)
+  async getProfile(@CurrentUser() user: User) {
     return this.authService.getProfile(user.id);
+  }
+
+  // exclui a conta do usuário logado
+  @Delete('delete-account')
+  @Roles(UserRole.ALUNO, UserRole.PROFESSOR, UserRole.ADMIN)
+  async deleteAccount(@CurrentUser() user: User) {
+    return this.authService.deleteAccount(user.id);
   }
 }

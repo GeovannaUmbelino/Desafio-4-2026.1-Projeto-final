@@ -29,7 +29,6 @@ export class AppService implements OnModuleInit {
     }
   }
 
-  // O método que o controller estava sentindo falta:
   getHello(): string {
     return 'EngNet API Online';
   }

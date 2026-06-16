@@ -1,13 +1,5 @@
 "use client";
 
-// BUG CORRIGIDO #3: DataContext agora integra com a API real do backend NestJS.
-// Antes: usava exclusivamente localStorage com dados mockados.
-// Agora: faz fetch para http://localhost:3001 (ou NEXT_PUBLIC_API_URL).
-//
-// Uso: mantenha os dados de usuário logado em localStorage apenas para
-// sessão (ex: userId após cadastro). Todos os dados de turmas, alunos
-// e chamadas vêm da API.
-
 import React, {
   createContext,
   useContext,
@@ -28,9 +20,7 @@ import {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
-// ─────────────────────────────────────────────
-// Helper de fetch com tratamento de erros
-// ─────────────────────────────────────────────
+
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
     headers: { 'Content-Type': 'application/json' },
@@ -43,9 +33,7 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-// ─────────────────────────────────────────────
-// Tipos do contexto
-// ─────────────────────────────────────────────
+
 interface DataContextType {
   // Estado
   turmas: Turma[];
@@ -74,9 +62,7 @@ interface DataContextType {
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
-// ─────────────────────────────────────────────
-// Provider
-// ─────────────────────────────────────────────
+
 export function DataProvider({ children }: { children: ReactNode }) {
   const [turmas, setTurmas] = useState<Turma[]>([]);
   const [alunos, setAlunos] = useState<Aluno[]>([]);
@@ -97,7 +83,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // ── Usuários ──────────────────────────────
+  // Usuários 
   const criarUsuario = useCallback(
     (payload: CriarUsuarioPayload) =>
       withLoading(() => apiFetch<Aluno>('/users', { method: 'POST', body: JSON.stringify(payload) })),
@@ -113,7 +99,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     [withLoading],
   );
 
-  // ── Turmas ────────────────────────────────
+  //  Turmas 
   const carregarTurmasDoProfessor = useCallback(
     (teacherId: string) =>
       withLoading(async () => {

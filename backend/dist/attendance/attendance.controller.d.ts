@@ -1,25 +1,33 @@
-import { CreateAttendanceDto } from './dto/create-attendance.dto';
-import { User } from '../users/entities/user.entity';
 import { AttendanceService } from './attendance.service';
-import type { SubmitAttendancePayload } from './attendance.service';
+import { User } from '../users/entities/user.entity';
 export declare class AttendanceController {
     private readonly attendanceService;
     constructor(attendanceService: AttendanceService);
-    create(createAttendanceDto: CreateAttendanceDto): Promise<import("./entities/attendance.entity").Attendance>;
-    submit(payload: SubmitAttendancePayload, user: User): Promise<import("./entities/attendance.entity").Attendance>;
-    dashboard(user: User): Promise<import("./attendance.service").DashboardStats>;
+    create(dto: any, user: User): Promise<import("./entities/attendance.entity").Attendance>;
+    submit(dto: any, user: User): Promise<import("./entities/attendance.entity").Attendance>;
+    getDashboardStats(user: User): Promise<{
+        totalAlunos: number;
+        totalTurmas: number;
+        mediaPresenca: number;
+        baixaFrequencia: any[];
+    }>;
     findAll(): Promise<import("./entities/attendance.entity").Attendance[]>;
     findByClass(classId: string, startDate?: string, endDate?: string): Promise<import("./entities/attendance.entity").Attendance[]>;
-    getReport(classId: string): Promise<{
-        classId: string;
-        totalAulas: number;
-        mediaFrequenciaTurma: string;
-        relatorioAlunos: {
-            alunoId: string;
-            presencas: number;
-            faltas: number;
-            porcentagemFrequencia: number;
-            status: string;
+    getAttendanceReport(classId: string): Promise<{
+        mediaPresenca: number;
+        totalAlunos: number;
+        chamadasRealizadas: number;
+        attendanceByDate: {
+            date: string;
+            percentage: number;
+        }[];
+        studentAttendance: {
+            id: string;
+            name: string;
+            matricula: string;
+            percentage: number;
+            presences: number;
+            absences: number;
         }[];
     }>;
 }

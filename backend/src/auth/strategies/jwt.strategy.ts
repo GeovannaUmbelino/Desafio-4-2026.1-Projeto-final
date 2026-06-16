@@ -13,10 +13,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly userRepo: Repository<User>,
   ) {
     super({
-        jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-        ignoreExpiration: false,
-        secretOrKey: process.env.JWT_SECRET || 'squad_newtons_dev', 
-});
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      ignoreExpiration: false,
+      secretOrKey: process.env.JWT_SECRET || 'squad_newtons_dev', 
+    });
   }
 
   async validate(payload: JwtPayload): Promise<User> {

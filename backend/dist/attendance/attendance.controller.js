@@ -14,32 +14,31 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AttendanceController = void 0;
 const common_1 = require("@nestjs/common");
-const create_attendance_dto_1 = require("./dto/create-attendance.dto");
+const attendance_service_1 = require("./attendance.service");
 const decorators_1 = require("../common/decorators");
 const user_entity_1 = require("../users/entities/user.entity");
-const attendance_service_1 = require("./attendance.service");
 let AttendanceController = class AttendanceController {
     attendanceService;
     constructor(attendanceService) {
         this.attendanceService = attendanceService;
     }
-    create(createAttendanceDto) {
-        return this.attendanceService.create(createAttendanceDto);
+    async create(dto, user) {
+        return this.attendanceService.create(dto, user);
     }
-    submit(payload, user) {
-        return this.attendanceService.submitAttendance(payload, user);
+    async submit(dto, user) {
+        return this.attendanceService.create(dto, user);
     }
-    dashboard(user) {
+    async getDashboardStats(user) {
         return this.attendanceService.getDashboardStats(user);
     }
-    findAll() {
+    async findAll() {
         return this.attendanceService.findAll();
     }
-    findByClass(classId, startDate, endDate) {
+    async findByClass(classId, startDate, endDate) {
         return this.attendanceService.findByClass(classId, startDate, endDate);
     }
-    getReport(classId) {
-        return this.attendanceService.getAttendanceReport(classId);
+    async getAttendanceReport(classId) {
+        return this.attendanceService.getClasseReport(classId);
     }
 };
 exports.AttendanceController = AttendanceController;
@@ -47,9 +46,10 @@ __decorate([
     (0, common_1.Post)(),
     (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, decorators_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_attendance_dto_1.CreateAttendanceDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [Object, user_entity_1.User]),
+    __metadata("design:returntype", Promise)
 ], AttendanceController.prototype, "create", null);
 __decorate([
     (0, common_1.Post)('submit'),
@@ -58,39 +58,41 @@ __decorate([
     __param(1, (0, decorators_1.CurrentUser)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, user_entity_1.User]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], AttendanceController.prototype, "submit", null);
 __decorate([
     (0, common_1.Get)('dashboard'),
-    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN, user_entity_1.UserRole.ALUNO),
     __param(0, (0, decorators_1.CurrentUser)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_entity_1.User]),
-    __metadata("design:returntype", void 0)
-], AttendanceController.prototype, "dashboard", null);
+    __metadata("design:returntype", Promise)
+], AttendanceController.prototype, "getDashboardStats", null);
 __decorate([
     (0, common_1.Get)(),
     (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], AttendanceController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)('turma/:classId'),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN, user_entity_1.UserRole.ALUNO),
     __param(0, (0, common_1.Param)('classId')),
     __param(1, (0, common_1.Query)('startDate')),
     __param(2, (0, common_1.Query)('endDate')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String, String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], AttendanceController.prototype, "findByClass", null);
 __decorate([
-    (0, common_1.Get)('turma/:classId/report'),
+    (0, common_1.Get)(['turma/:classId/report', 'metrics/class/:classId']),
+    (0, decorators_1.Roles)(user_entity_1.UserRole.PROFESSOR, user_entity_1.UserRole.ADMIN, user_entity_1.UserRole.ALUNO),
     __param(0, (0, common_1.Param)('classId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], AttendanceController.prototype, "getReport", null);
+    __metadata("design:returntype", Promise)
+], AttendanceController.prototype, "getAttendanceReport", null);
 exports.AttendanceController = AttendanceController = __decorate([
     (0, common_1.Controller)('attendance'),
     __metadata("design:paramtypes", [attendance_service_1.AttendanceService])

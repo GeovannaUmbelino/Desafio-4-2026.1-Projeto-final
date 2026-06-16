@@ -10,16 +10,16 @@ export class Class {
   @PrimaryGeneratedColumn('uuid') // ID Único da Turma
   id!: string;
 
-  @Column() // Nome da Turma / Disciplina (ex: "Laboratório de Química")
+  @Column() // Nome da Turma 
   name!: string;
 
-  @Column({ unique: true }) // Código ou sala da turma (ex: "LAB-03" ou "TURMA-A")
+  @Column({ unique: true }) // Código da  turma 
   code!: string;
 
   @Column('uuid') // Guarda o UUID do Professor responsável (que vem de Users)
   teacherId!: string;
 
-  // Armazena os UUIDs dos alunos matriculados como um array de textos (JSON)
+  // Armazena os UUIDs dos alunos matriculados 
   @Column({ type: 'simple-json', nullable: true })
   studentIds!: string[];
 

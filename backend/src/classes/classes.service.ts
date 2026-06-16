@@ -2,115 +2,128 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Class } from './entities/class.entity';
-import { CreateClassDto } from './dto/create-class.dto';
-import { UpdateClassDto } from './dto/update-class.dto';
-
-
 
 @Injectable()
 export class ClassesService {
   constructor(
     @InjectRepository(Class)
-    private readonly classRepository: Repository<Class>,
+    private readonly classRepo: Repository<Class>,
   ) {}
 
+  // Cria e salva a turma de forma limpa usando a estrutura real da entidade
+  async create(dto: any) {
+    try {
+      const novaTurma = this.classRepo.create({
+        name: dto.name,
+        code: dto.code,
+        schedule: dto.schedule,
+        teacherId: dto.teacherId,
+        studentIds: [], // Inicializa a turma com o array de estudantes vazio
+      });
 
-
-  // Criar uma nova turma 
-  async create(dto: CreateClassDto): Promise<Class> {
-    const newClass = this.classRepository.create({
-      ...dto,
-      studentIds: [], // Inicializa a lista de alunos vazia
-    });
-    return this.classRepository.save(newClass);
-  }
-
-
-  async findAll(): Promise<Class[]> {
-    return this.classRepository.find();
-  }
-
-  async findOne(id: string): Promise<Class> {
-    const targetClass = await this.classRepository.findOne({ where: { id } });
-    if (!targetClass) {
-      throw new NotFoundException('Turma não encontrada.');
+      return await this.classRepo.save(novaTurma);
+    } catch (error: any) {
+      console.error('❌ [ERRO AO CRIAR TURMA] Falha ao salvar no SQLite:', error);
+      throw new Error(`Não foi possível salvar a turma: ${error.message}`);
     }
-    return targetClass;
   }
 
+  // Realiza a matrícula do aluno atualizando o array JSON 'studentIds'
+  async addStudent(classId: string, studentId: string) {
+    try {
+      const turma = await this.classRepo.findOne({ where: { id: classId } });
+      if (!turma) throw new NotFoundException('Turma não localizada.');
 
-  async findByTeacher(teacherId: string): Promise<Class[]> {
-    return this.classRepository.find({ where: { teacherId } });
+      // Inicializa o array se ele estiver nulo por algum motivo
+      let alunosAtuais: string[] = [];
+      if (turma.studentIds) {
+        if (typeof turma.studentIds === 'string') {
+          try { alunosAtuais = JSON.parse(turma.studentIds); } catch { alunosAtuais = []; }
+        } else if (Array.isArray(turma.studentIds)) {
+          alunosAtuais = turma.studentIds;
+        }
+      }
+
+      // Evita duplicar a matrícula do mesmo estudante normalizando as strings
+      const idLimpo = String(studentId).trim().toLowerCase();
+      const jaMatriculado = alunosAtuais.map(id => String(id).trim().toLowerCase()).includes(idLimpo);
+
+      if (jaMatriculado) {
+        return turma;
+      }
+
+      alunosAtuais.push(studentId);
+      turma.studentIds = alunosAtuais;
+
+      return await this.classRepo.save(turma);
+    } catch (error: any) {
+      console.error('❌ [ERRO MATRÍCULA] Falha ao injetar aluno no array:', error);
+      throw new Error(`Erro ao matricular: ${error.message}`);
+    }
   }
 
- // Editar dados de uma turma
-  async update(id: string, dto: UpdateClassDto): Promise<Class> {
-    const targetClass = await this.classRepository.findOne({ where: { id } });
-    if (!targetClass) {
-      throw new NotFoundException('Turma não encontrada para atualização.');
-    }
-    
+  // 💡 LISTAGEM INTELIGENTE: Agora aceita e filtra as matérias corretamente para Admin, Professor e Aluno!
+  async findAll(user: any) {
+    try {
+      // Busca todas as disciplinas salvas no SQLite para fazer a filtragem segura
+      const todasAsTurmas = await this.classRepo.find();
 
-    Object.assign(targetClass, dto);
-    return this.classRepository.save(targetClass);
+      if (!user) return todasAsTurmas;
+
+      // 1. Se for Administrador, vê tudo completo
+      if (user.role === 'admin') {
+        return todasAsTurmas;
+      }
+
+      // 2. Se for Aluno, filtra se o ID dele está dentro da lista de matriculados (studentIds)
+      if (user.role === 'aluno') {
+        return todasAsTurmas.filter(turma => {
+          if (!turma.studentIds) return false;
+          let ids: string[] = [];
+          
+          try {
+            if (typeof turma.studentIds === 'string') {
+              const parsed = JSON.parse(turma.studentIds);
+              ids = Array.isArray(parsed) ? parsed : [turma.studentIds];
+            } else if (Array.isArray(turma.studentIds)) {
+              ids = turma.studentIds;
+            }
+          } catch {
+            ids = String(turma.studentIds).split(',');
+          }
+
+          return ids.map(id => String(id).trim().toLowerCase()).includes(String(user.id).trim().toLowerCase());
+        });
+      }
+
+      // 3. Se for Professor, filtra as matérias onde o teacherId corresponde ao ID dele
+      if (user.id) {
+        return todasAsTurmas.filter(turma => String(turma.teacherId).trim() === String(user.id).trim());
+      }
+
+      return [];
+    } catch (error: any) {
+      console.error('❌ [ERRO LISTAGEM] Falha ao buscar disciplinas:', error.message);
+      return [];
+    }
   }
 
-  // Deletar uma turma do sistema
-  async remove(id: string): Promise<void> {
-    const targetClass = await this.classRepository.findOne({ where: { id } });
-    if (!targetClass) {
-      throw new NotFoundException('Turma não encontrada para exclusão.');
+  // Detalha uma única turma
+  async findOne(id: string) {
+    try {
+      const turma = await this.classRepo.findOne({ where: { id } });
+      if (!turma) {
+        throw new NotFoundException(`Turma com o ID ${id} não localizada.`);
+      }
+      return turma;
+    } catch (error: any) {
+      throw new NotFoundException(`Erro ao buscar turma: ${error.message}`);
     }
-    await this.classRepository.remove(targetClass);
   }
 
-
-
-  // Matricular um aluno na turma
-  async enrollStudent(classId: string, studentId: string): Promise<Class> {
-    const targetClass = await this.classRepository.findOne({ where: { id: classId } });
-    if (!targetClass) {
-      throw new NotFoundException('Turma não encontrada.');
-    }
-
-
-
-    if (!targetClass.studentIds) {
-      targetClass.studentIds = [];
-    }
-
-
-
-    if (!targetClass.studentIds.includes(studentId)) {
-      targetClass.studentIds.push(studentId);
-    }
-    return this.classRepository.save(targetClass);
-  }
-
- 
-  async findByStudent(studentId: string): Promise<Class[]> {
-    const allClasses = await this.classRepository.find();
-    return allClasses.filter(
-      (c) => c.studentIds && c.studentIds.includes(studentId),
-    );
-  }
-
-
-
-  
-
-  async getClassDashboardData(id: string) {
-    const targetClass = await this.classRepository.findOne({ where: { id } });
-    if (!targetClass) {
-      throw new NotFoundException('Turma não encontrada.');
-    }
-    return {
-      id: targetClass.id,
-      name: targetClass.name,
-      code: targetClass.code,
-      schedule: targetClass.schedule,
-      totalStudents: targetClass.studentIds ? targetClass.studentIds.length : 0,
-      studentIds: targetClass.studentIds || [],
-    };
+  // Remove uma turma
+  async remove(id: string) {
+    const turma = await this.findOne(id);
+    return await this.classRepo.remove(turma);
   }
 }

@@ -19,9 +19,9 @@ services:
     ports:
       - "3001:3001"
     environment:
-      - DATABASE_PATH=${DATABASE_PATH:-./data/presenca.db}
-      - JWT_SECRET=${JWT_SECRET:-chave-padrao-trocar-em-producao}
-      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-1d}
+      - DATABASE_PATH=./data/presenca.db
+      - JWT_SECRET=squad_newtons_dev
+      - JWT_EXPIRES_IN=1d
     volumes:
       - sqlite_data:/app/data
 

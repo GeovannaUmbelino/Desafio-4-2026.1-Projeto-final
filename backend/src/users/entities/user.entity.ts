@@ -23,9 +23,13 @@ export class User {
   @Column({ type: 'text', default: UserRole.PROFESSOR })
   role!: UserRole;
 
-  // Campo para matrícula (obrigatório para alunos, opcional para professores)
+  // Campo para matrícula 
   @Column({ nullable: true })
   matricula?: string;
+
+  // Guarda o link da foto de perfil salva no servidor
+  @Column({ type: 'text', nullable: true, default: null })
+  fotoUrl!: string | null;
 
   // Permite desativar uma conta sem deletar
   @Column({ default: true })

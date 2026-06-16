@@ -1,45 +1,46 @@
-import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
-import { CreateAttendanceDto } from './dto/create-attendance.dto';
-import { Roles, CurrentUser } from '../common/decorators';
-import { UserRole, User } from '../users/entities/user.entity';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Query,
+  Param,
+} from '@nestjs/common';
 import { AttendanceService } from './attendance.service';
-import type { SubmitAttendancePayload } from './attendance.service';
+import { Roles, CurrentUser } from '../common/decorators';
+import { User, UserRole } from '../users/entities/user.entity';
 
 @Controller('attendance')
 export class AttendanceController {
   constructor(private readonly attendanceService: AttendanceService) {}
 
-  // Apenas professores registram chamada
   @Post()
   @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  create(@Body() createAttendanceDto: CreateAttendanceDto) {
-    return this.attendanceService.create(createAttendanceDto);
+  async create(@Body() dto: any, @CurrentUser() user: User) {
+    return this.attendanceService.create(dto, user);
   }
 
-  // Endpoint chamado pelo frontend para salvar chamada com records[]
   @Post('submit')
   @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  submit(@Body() payload: SubmitAttendancePayload, @CurrentUser() user: User) {
-    return this.attendanceService.submitAttendance(payload, user);
+  async submit(@Body() dto: any, @CurrentUser() user: User) {
+    return this.attendanceService.create(dto, user);
   }
 
-  // Dashboard de presença (admin/professor)
   @Get('dashboard')
-  @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  dashboard(@CurrentUser() user: User) {
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN, UserRole.ALUNO)
+  async getDashboardStats(@CurrentUser() user: User) {
     return this.attendanceService.getDashboardStats(user);
   }
 
-  // Listar todas as chamadas (professor/admin)
   @Get()
   @Roles(UserRole.PROFESSOR, UserRole.ADMIN)
-  findAll() {
+  async findAll() {
     return this.attendanceService.findAll();
   }
 
-  // Buscar chamadas por turma — professores e alunos podem ver
   @Get('turma/:classId')
-  findByClass(
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN, UserRole.ALUNO)
+  async findByClass(
     @Param('classId') classId: string,
     @Query('startDate') startDate?: string,
     @Query('endDate') endDate?: string,
@@ -47,9 +48,10 @@ export class AttendanceController {
     return this.attendanceService.findByClass(classId, startDate, endDate);
   }
 
-  // Relatório da turma — professores e alunos podem ver
-  @Get('turma/:classId/report')
-  getReport(@Param('classId') classId: string) {
-    return this.attendanceService.getAttendanceReport(classId);
+  // 💡 CORREÇÃO CONECTADA: Mapeia as duas rotas chamando o método exato do seu serviço estruturado
+  @Get(['turma/:classId/report', 'metrics/class/:classId'])
+  @Roles(UserRole.PROFESSOR, UserRole.ADMIN, UserRole.ALUNO)
+  async getAttendanceReport(@Param('classId') classId: string) {
+    return this.attendanceService.getClasseReport(classId); // Mapeia para a função real
   }
 }

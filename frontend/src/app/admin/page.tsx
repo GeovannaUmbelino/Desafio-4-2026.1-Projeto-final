@@ -31,7 +31,7 @@ export default function AdminPage() {
     }
   }, [user, isAuthLoading, router]);
 
-  // 2. Carrega os usuários
+  // Carrega os usuários
   useEffect(() => {
     if (user?.role === "admin") {
       fetchUsuarios();
@@ -54,12 +54,11 @@ export default function AdminPage() {
     }
   };
 
-  // Evita piscar a tela enquanto verifica o cargo
+ 
   if (isAuthLoading || user?.role !== "admin") {
     return <div className="flex h-screen bg-gray-50 dark:bg-gray-900"></div>;
   }
 
-  // Contadores para os Cards Superiores
   const totalProfessores = usuarios.filter(u => u.role === "professor").length;
   const totalAlunos = usuarios.filter(u => u.role === "aluno").length;
 
@@ -73,7 +72,7 @@ export default function AdminPage() {
           <div className="flex justify-between items-center mb-8">
             <div>
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white">Painel do Administrador</h2>
-              <p className="text-sm text-gray-500 mt-1">Gerencie os acessos ao sistema EngNet</p>
+              <p className="text-sm text-gray-500 mt-1">Gerencie os acessos ao sistema</p>
             </div>
             <button
               onClick={() => setModalAberto(true)}

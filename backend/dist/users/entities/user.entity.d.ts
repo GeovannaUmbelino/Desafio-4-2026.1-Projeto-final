@@ -10,6 +10,7 @@ export declare class User {
     password: string;
     role: UserRole;
     matricula?: string;
+    fotoUrl: string | null;
     isActive: boolean;
     createdAt: Date;
 }

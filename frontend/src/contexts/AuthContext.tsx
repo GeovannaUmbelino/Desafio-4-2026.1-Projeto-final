@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 import { useRouter } from 'next/navigation';
-import api, { getErrorMessage } from '@/lib/api';
+import api from '@/lib/api';
 
 export type UserRole = 'admin' | 'professor' | 'aluno';
 
@@ -40,13 +40,10 @@ interface AuthContextType {
   logout: () => void;
 }
 
-
 const TOKEN_KEY = 'engnet_token';
 const USER_KEY  = 'engnet_user';
 
-
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -54,7 +51,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken]     = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true); 
 
-  
   useEffect(() => {
     try {
       const storedToken = localStorage.getItem(TOKEN_KEY);
@@ -64,34 +60,33 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(JSON.parse(storedUser) as AuthUser);
       }
     } catch {
-      
       localStorage.removeItem(TOKEN_KEY);
       localStorage.removeItem(USER_KEY);
+      document.cookie = `${TOKEN_KEY}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
     } finally {
       setIsLoading(false);
     }
   }, []);
 
-  
   const persistSession = useCallback((newToken: string, newUser: AuthUser) => {
     localStorage.setItem(TOKEN_KEY, newToken);
     localStorage.setItem(USER_KEY, JSON.stringify(newUser));
+    
+    document.cookie = `${TOKEN_KEY}=${newToken}; path=/; max-age=86400; SameSite=Lax`;
+    
     setToken(newToken);
     setUser(newUser);
   }, []);
 
-//Login 
-
+  // Login 
   const login = useCallback(
     async (credentials: LoginCredentials) => {
-     
       const { data } = await api.post<{ accessToken: string; user: AuthUser }>(
         '/auth/login',
         credentials,
       );
       persistSession(data.accessToken, data.user);
 
-      
       const redirectMap: Record<UserRole, string> = {
         admin:     '/',         
         professor: '/chamada',
@@ -102,8 +97,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     [persistSession, router],
   );
 
-  //  Register 
-
+  // Register 
   const register = useCallback(
     async (data: RegisterData) => {
       const { data: res } = await api.post<{ accessToken: string; user: AuthUser }>(
@@ -111,21 +105,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         data,
       );
       persistSession(res.accessToken, res.user);
-      router.replace('/');
+      
+      const redirectMap: Record<UserRole, string> = {
+        admin:     '/',         
+        professor: '/chamada',
+        aluno:     '/aluno',    
+      };
+      router.replace(redirectMap[data.role] ?? '/');
     },
     [persistSession, router],
   );
 
-  //  Logout 
-
+  // Logout 
   const logout = useCallback(() => {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USER_KEY);
+    
+    document.cookie = `${TOKEN_KEY}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+    
     setToken(null);
     setUser(null);
     router.replace('/login_cadastro');
   }, [router]);
-
 
   const value = useMemo<AuthContextType>(
     () => ({
@@ -142,7 +143,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
 
 export function useAuth(): AuthContextType {
   const ctx = useContext(AuthContext);

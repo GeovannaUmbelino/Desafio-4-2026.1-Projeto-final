@@ -11,13 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Attendance = void 0;
 const typeorm_1 = require("typeorm");
-const class_entity_1 = require("../../classes/entities/class.entity");
 let Attendance = class Attendance {
     id;
-    class;
     classId;
+    teacherId;
+    studentsResult;
     date;
-    presentStudents;
     createdAt;
 };
 exports.Attendance = Attendance;
@@ -26,27 +25,26 @@ __decorate([
     __metadata("design:type", String)
 ], Attendance.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => class_entity_1.Class, { onDelete: 'CASCADE' }),
-    (0, typeorm_1.JoinColumn)({ name: 'classId' }),
-    __metadata("design:type", class_entity_1.Class)
-], Attendance.prototype, "class", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)('uuid'),
     __metadata("design:type", String)
 ], Attendance.prototype, "classId", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'text' }),
+    (0, typeorm_1.Column)('uuid'),
+    __metadata("design:type", String)
+], Attendance.prototype, "teacherId", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'simple-json', nullable: true }),
+    __metadata("design:type", Object)
+], Attendance.prototype, "studentsResult", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true }),
     __metadata("design:type", String)
 ], Attendance.prototype, "date", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ type: 'text' }),
-    __metadata("design:type", String)
-], Attendance.prototype, "presentStudents", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)
 ], Attendance.prototype, "createdAt", void 0);
 exports.Attendance = Attendance = __decorate([
-    (0, typeorm_1.Entity)('attendance')
+    (0, typeorm_1.Entity)('attendances')
 ], Attendance);
 //# sourceMappingURL=attendance.entity.js.map

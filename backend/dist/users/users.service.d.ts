@@ -10,6 +10,7 @@ export declare class UsersService {
         email: string;
         role: import("./entities/user.entity").UserRole;
         matricula?: string;
+        fotoUrl: string | null;
         isActive: boolean;
         createdAt: Date;
     }>;

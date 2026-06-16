@@ -20,7 +20,7 @@ exports.ClassesModule = ClassesModule = __decorate([
         imports: [typeorm_1.TypeOrmModule.forFeature([class_entity_1.Class])],
         controllers: [classes_controller_1.ClassesController],
         providers: [classes_service_1.ClassesService],
-        exports: [classes_service_1.ClassesService],
+        exports: [classes_service_1.ClassesService, typeorm_1.TypeOrmModule],
     })
 ], ClassesModule);
 //# sourceMappingURL=classes.module.js.map

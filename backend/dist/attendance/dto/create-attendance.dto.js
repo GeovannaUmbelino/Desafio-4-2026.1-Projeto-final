@@ -9,11 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateAttendanceDto = void 0;
+exports.CreateAttendanceDto = exports.AttendanceRecordDto = void 0;
 const class_validator_1 = require("class-validator");
+class AttendanceRecordDto {
+    studentId;
+    isPresent;
+    present;
+}
+exports.AttendanceRecordDto = AttendanceRecordDto;
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], AttendanceRecordDto.prototype, "studentId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Boolean)
+], AttendanceRecordDto.prototype, "isPresent", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Boolean)
+], AttendanceRecordDto.prototype, "present", void 0);
 class CreateAttendanceDto {
     classId;
     date;
+    records;
     presentStudents;
 }
 exports.CreateAttendanceDto = CreateAttendanceDto;
@@ -29,7 +49,13 @@ __decorate([
 ], CreateAttendanceDto.prototype, "date", void 0);
 __decorate([
     (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateAttendanceDto.prototype, "records", void 0);
+__decorate([
+    (0, class_validator_1.IsArray)(),
     (0, class_validator_1.IsString)({ each: true }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Array)
 ], CreateAttendanceDto.prototype, "presentStudents", void 0);
 //# sourceMappingURL=create-attendance.dto.js.map

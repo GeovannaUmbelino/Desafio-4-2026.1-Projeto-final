@@ -25,5 +25,6 @@ export interface AuthResponse {
         email: string;
         role: UserRole;
         matricula?: string;
+        fotoUrl?: string | null;
     };
 }

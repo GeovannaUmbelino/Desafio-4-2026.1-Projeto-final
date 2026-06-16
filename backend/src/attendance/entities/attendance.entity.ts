@@ -3,28 +3,25 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  ManyToOne,
-  JoinColumn,
 } from 'typeorm';
-import { Class } from '../../classes/entities/class.entity';
 
-@Entity('attendance')
+@Entity('attendances')
 export class Attendance {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @ManyToOne(() => Class, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'classId' })
-  class!: Class;
-
-  @Column()
+  @Column('uuid')
   classId!: string;
 
-  @Column({ type: 'text' })
-  date!: string;
+  @Column('uuid')
+  teacherId!: string;
 
-  @Column({ type: 'text' })
-  presentStudents!: string;
+  // 💡 CORREÇÃO: Define e tipa a coluna que armazena o resultado JSON dos alunos presentes/ausentes
+  @Column({ type: 'simple-json', nullable: true })
+  studentsResult!: any;
+
+  @Column({ type: 'text', nullable: true })
+  date!: string;
 
   @CreateDateColumn()
   createdAt!: Date;

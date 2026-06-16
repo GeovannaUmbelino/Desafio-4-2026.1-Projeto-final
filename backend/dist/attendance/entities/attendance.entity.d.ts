@@ -1,9 +1,8 @@
-import { Class } from '../../classes/entities/class.entity';
 export declare class Attendance {
     id: string;
-    class: Class;
     classId: string;
+    teacherId: string;
+    studentsResult: any;
     date: string;
-    presentStudents: string;
     createdAt: Date;
 }

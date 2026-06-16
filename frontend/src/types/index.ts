@@ -1,23 +1,18 @@
-// BUG CORRIGIDO #4: Tipos alinhados com as entidades do backend (NestJS/TypeORM)
-// O backend retorna UUIDs (string), não números inteiros.
-// Os campos seguem o padrão inglês do backend (name, code, teacherId).
-
 export interface Turma {
-  id: string;          // UUID gerado pelo TypeORM
-  name: string;        // era "nome" — agora alinhado com Class.name do backend
-  code: string;        // era "codigo" — alinhado com Class.code
-  teacherId: string;   // UUID do professor responsável
-  studentIds: string[]; // Array de UUIDs dos alunos matriculados
-  schedule: string;    // era "horario" — alinhado com Class.schedule
+  id: string;         
+  name: string;        
+  code: string;        
+  teacherId: string;   
+  studentIds: string[]; 
+  schedule: string;    
   createdAt?: string;
 }
 
 export interface Aluno {
-  id: string;          // UUID gerado pelo TypeORM
-  name: string;        // era "nome"
+  id: string;          
+  name: string;        
   email: string;
   role: 'professor' | 'aluno';
-  // Campos calculados localmente a partir dos registros de Attendance:
   presencas?: number;
   totalAulas?: number;
 }
@@ -25,8 +20,8 @@ export interface Aluno {
 export interface Chamada {
   id: string;
   classId: string;
-  date: string;           // Formato "YYYY-MM-DD"
-  presentStudents: string; // JSON string de UUID[] — parse necessário
+  date: string;           
+  presentStudents: string; 
   createdAt?: string;
   class?: Turma;
 }
@@ -46,7 +41,7 @@ export interface RelatorioAluno {
   status: 'Regular' | 'Risco de Reprovação';
 }
 
-// Tipo de criação de usuário (alinhado com CreateUserDto do backend)
+// Tipo de criação de usuário 
 export interface CriarUsuarioPayload {
   name: string;
   email: string;
@@ -54,7 +49,6 @@ export interface CriarUsuarioPayload {
   role: 'professor' | 'aluno';
 }
 
-// Tipo de criação de turma (alinhado com CreateClassDto do backend)
 export interface CriarTurmaPayload {
   name: string;
   code: string;
@@ -62,9 +56,8 @@ export interface CriarTurmaPayload {
   schedule: string;
 }
 
-// Tipo de registro de chamada (alinhado com CreateAttendanceDto do backend)
 export interface RegistrarChamadaPayload {
   classId: string;
-  date: string;           // "YYYY-MM-DD"
-  presentStudents: string[]; // Array de UUIDs
+  date: string;          
+  presentStudents: string[]; 
 }

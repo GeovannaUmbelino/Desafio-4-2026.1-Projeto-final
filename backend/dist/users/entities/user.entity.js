@@ -24,6 +24,7 @@ let User = class User {
     password;
     role;
     matricula;
+    fotoUrl;
     isActive;
     createdAt;
 };
@@ -52,6 +53,10 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], User.prototype, "matricula", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'text', nullable: true, default: null }),
+    __metadata("design:type", Object)
+], User.prototype, "fotoUrl", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: true }),
     __metadata("design:type", Boolean)

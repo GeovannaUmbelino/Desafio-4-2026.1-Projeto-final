@@ -1,4 +1,16 @@
-import { IsArray, IsNotEmpty, IsString } from 'class-validator';
+import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+
+export class AttendanceRecordDto {
+  @IsString()
+  @IsNotEmpty()
+  studentId!: string;
+
+  @IsOptional()
+  isPresent?: boolean;
+
+  @IsOptional()
+  present?: boolean;
+}
 
 export class CreateAttendanceDto {
   @IsString()
@@ -10,6 +22,11 @@ export class CreateAttendanceDto {
   date!: string;
 
   @IsArray()
+  @IsOptional()
+  records!: AttendanceRecordDto[];
+
+  @IsArray()
   @IsString({ each: true })
+  @IsOptional()
   presentStudents!: string[];
 }

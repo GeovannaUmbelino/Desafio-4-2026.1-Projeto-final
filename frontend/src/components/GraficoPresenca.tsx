@@ -71,7 +71,6 @@ export default function GraficoPresenca() {
     const ponto: Record<string, string | number> = { semana: sem };
     turmas.forEach((t, indexTurma) => {
       const base = dadosPresencaPorTurma.find((d) => d.turma === t.name)?.presenca ?? 80;
-      // Ajustado para não usar o t.id na matemática, pois agora é uma string UUID
       const variacao = ((indexSemana * 7 + indexTurma) % 15) - 7;
       ponto[t.name] = Math.min(100, Math.max(0, base + variacao));
     });
