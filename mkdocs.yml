@@ -44,20 +44,18 @@ nav:
       - Ferramentas: Planejamento/Ferramentas.md
       - Cronograma: Planejamento/Cronograma.md
       - Matriz CSD: Planejamento/Matriz_CSD.md
-
-  - Atas:
-      - 1. Ata de Reunião(04/09): Atas/ata09-04.md
      
 
   - Pré-Rastreabilidade:
       - Rich Picture: Pré-Rastriabilidade/Rich-picture.md
-      - Lista de verificação: Pré-Rastriabilidade/Rich_pictureLV.md
+  
 
   - Elicitação:
       - Perfil de usuário: Elicitação/Perfil_usuario.md
       - Requisitos Elicitados: Elicitação/Requisitos-Elicitados.md
       - Priorização:
           - Matriz Esforço x Impacto: Elicitação/Priorização/matrizesforco_impacto.md
+          - First Things First: Elicitação/Priorização/First_Things_First.md
   - Arquitetura: 
     - DER: rquitetura/DER.md
 

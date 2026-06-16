@@ -161,3 +161,11 @@ Adaptação automática do *layout* utilizando **Tailwind CSS** para:
 
 ## Considerações Finais:
 O desafio simula um cenário real de desenvolvimento *full stack*, exigindo interpretação de problemas reais, modelagem de soluções, design responsivo, escalabilidade e garantia de uma boa experiência para o usuário (UX) e satisfação do cliente.
+
+
+
+## Histórico de Versões
+
+| Versão | Data       | Descrição                                     | Autor                                                                                                                                                                                                                                                                                                      | Revisor                                               |
+| ------ | ---------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 1.0    | 05/06/2026 | Documentação do first things first       | [Ronan Freitas](https://github.com/HunterBRR) | [Felipe Serikava](https://github.com/felipeserikava-web), [Geovanna Alves](https://github.com/GeovannaUmbelino) |
