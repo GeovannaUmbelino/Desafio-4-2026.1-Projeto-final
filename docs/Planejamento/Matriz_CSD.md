@@ -10,6 +10,13 @@ As informações preliminares, palpites e questionamentos da equipe foram transf
 
 Para organizar esses dados, optamos pela estrutura de pilares definida pelo framework CSD, que utiliza uma abordagem de divisão clara para facilitar a compreensão e permitir a validação de cada ponto. Além disso, aplicou-se a "segunda onda" da metodologia, exigindo que suposições e dúvidas venham acompanhadas de um "como" (planos de ação para descoberta, como testes ou entrevistas).
 
+<font size="3"><p  align="center" style="text-align: center">Figura 1: Matriz CSD 1.</p></font>
+
+![matrizCSD1](https://i.postimg.cc/hvD6CBrX/matriz-CSD.png)
+
+<font size="3"><p  align="center" style="text-align: center">Fonte: [Felipe Serikava](https://github.com/felipeserikava-web).</p></font>
+
+
 Para garantir padronização e servir como referência na elaboração e leitura da matriz, foi criado um modelo a ser seguido, apresentado na Tabela 1.
 
 Tabela 1 – Descrição dos itens da Matriz CSD.
@@ -25,6 +32,9 @@ Fonte: [Felipe Serikava](https://github.com/felipeserikava-web)
 
 
 A matriz será tratada como um documento vivo, construída e mantida no ambiente visual e colaborativo da plataforma Miro. Essa escolha tecnológica permite dinâmicas mais interativas e facilita a iteração constante da documentação
+
+## Bibliografia
+> <a id="REF1" href="#anchor_1">1.</a>. FONSECA, Kakau. Matriz CSD. Medium, 2021. Disponível em: <[https://brasil.uxdesign.cc/matriz-csd-tudo-o-que-voc%C3%AA-precisa-saber-897e39c797e7]>. Acesso em: 15 de junho de 2026.
 
 
 ## Histórico de Versões

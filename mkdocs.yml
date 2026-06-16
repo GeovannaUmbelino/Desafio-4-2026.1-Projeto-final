@@ -58,7 +58,7 @@ nav:
       - Perfil de usuário: Elicitação/Perfil_usuario.md
       - Requisitos Elicitados: Elicitação/Requisitos-Elicitados.md
       - Priorização:
-          - Tree Level Scale: Elicitação/Priorização/Three_level_scale.md
+          - Matriz Esforço x Impacto: Elicitação/Priorização/matrizesforco_impacto.md
   - Arquitetura: 
     - DER: rquitetura/DER.md
 
