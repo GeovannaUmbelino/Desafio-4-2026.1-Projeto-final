@@ -29,159 +29,35 @@ A Tabela 2 apresenta o Product Backlog completo do sistema de gestão de presen�
  
 <font size="3"><p style="text-align: center">Tabela 2: Product Backlog — Sistema de Gestão de Presença Acadêmica</p></font>
  
-<div align="center">
-<table border="1" cellspacing="0" cellpadding="6">
-  <thead style="background-color:#E8610A; color:#ffffff;">
-    <tr>
-      <th>Épico</th>
-      <th>Feature</th>
-      <th>História de Usuário</th>
-      <th>Priorização</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 1<br/>Autenticar
-      </td>
-      <td rowspan="2">Feature 1 — Autenticação de Usuários</td>
-      <td><strong>US01</strong> — Cadastro de usuário com foto e tipo de perfil</td>
-      <td >Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US02</strong> — Login seguro com JWT e redirecionamento por role</td>
-      <td >Alta</td>
-    </tr>
-    <tr>
-      <td >
-        Épico 2<br/>Gerenciar Perfil
-      </td>
-      <td >Feature 1 — Perfil do Usuário</td>
-      <td><strong>US03</strong> — Visualizar e editar perfil pessoal do usuário</td>
-      <td >Média</td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 3<br/>Visualizar Dashboard
-      </td>
-      <td rowspan="2">Feature 1 — Métricas Gerais</td>
-      <td><strong>US04</strong> — Visualizar dashboard com métricas do sistema</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US05</strong> — Visualizar gráficos dinâmicos de frequência</td>
-      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
-    </tr>
-    <tr>
-      <td rowspan="4" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 4<br/>Gerenciar Turmas
-      </td>
-      <td rowspan="3">Feature 1 — CRUD de Turmas</td>
-      <td><strong>US06</strong> — Criar turma com nome, código, horário e alunos</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US07</strong> — Editar dados de uma turma existente</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US08</strong> — Remover turma com exclusão lógica (soft delete)</td>
-      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
-    </tr>
-    <tr>
-      <td rowspan="1">Feature 2 — Visualização e Busca</td>
-      <td><strong>US09</strong> — Listar turmas e alunos com busca e filtro rápido</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td rowspan="3" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 5<br/>Controlar Frequência
-      </td>
-      <td rowspan="2">Feature 1 — Registro de Chamada</td>
-      <td><strong>US10</strong> — Registrar presença digital em aula (professor)</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US11</strong> — Visualizar histórico de frequência por turma</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td rowspan="1">Feature 2 — Carga Horária</td>
-      <td><strong>US12</strong> — Gerenciar automaticamente a carga horária das aulas</td>
-      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 6<br/>Gerar Relatórios
-      </td>
-      <td rowspan="2">Feature 1 — Relatórios do Professor</td>
-      <td><strong>US13</strong> — Gerar relatório consolidado de todas as turmas do professor</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US14</strong> — Gerar relatório detalhado por turma selecionada com exportação</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td rowspan="3" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 7<br/>Área do Aluno
-      </td>
-      <td rowspan="3">Feature 1 — Acompanhamento de Frequência</td>
-      <td><strong>US15</strong> — Visualizar turmas em que o aluno está matriculado</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US16</strong> — Visualizar histórico detalhado de presenças e faltas</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US17</strong> — Receber alertas automáticos de baixa frequência</td>
-      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
-    </tr>
-    <tr>
-      <td rowspan="5" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 8<br/>Requisitos Técnicos
-      </td>
-      <td rowspan="3">Feature 1 — Interface e Responsividade</td>
-      <td><strong>US18</strong> — Garantir layout responsivo em Desktop, Tablet e Mobile</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US19</strong> — Configurar stack obrigatória: Next.js, NestJS e SQLite</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US20</strong> — Criar protótipo com identidade visual da empresa</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td rowspan="2">Feature 2 — Entrega e Deploy</td>
-      <td><strong>US21</strong> — Versionar código no GitHub com README completo</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td><strong>US22</strong> — Configurar deploy automatizado via Vercel ou Netlify</td>
-      <td style="background-color:#FDECEA; color:#C62828; font-weight:bold; text-align:center;">Alta</td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="background-color:#FFF3EC; font-weight:bold; color:#E8610A; text-align:center;">
-        Épico 9<br/>Diferenciais
-      </td>
-      <td rowspan="2">Feature 1 — Experiência do Usuário</td>
-      <td><strong>US23</strong> — Implementar alternância de tema dark mode</td>
-      <td style="background-color:#E8F5E9; color:#2E7D32; font-weight:bold; text-align:center;">Baixa</td>
-    </tr>
-    <tr>
-      <td><strong>US24</strong> — Adicionar filtro e busca avançada de alunos</td>
-      <td style="background-color:#FFF8E1; color:#E65100; font-weight:bold; text-align:center;">Média</td>
-    </tr>
- 
-  </tbody>
-</table>
-</div>
+| Épico | Feature | História de Usuário | Priorização |
+| :--- | :--- | :--- | :--- |
+| Épico 1 - Autenticar | Feature 1 — Autenticação de Usuários | **US01** — Cadastro de usuário com foto e tipo de perfil | Alta |
+| Épico 1 - Autenticar | Feature 1 — Autenticação de Usuários | **US02** — Login seguro com JWT e redirecionamento por role | Alta |
+| Épico 2 - Gerenciar Perfil | Feature 1 — Perfil do Usuário | **US03** — Visualizar e editar perfil pessoal do usuário | Média |
+| Épico 3 - Visualizar Dashboard | Feature 1 — Métricas Gerais | **US04** — Visualizar dashboard com métricas do sistema | Alta |
+| Épico 3 - Visualizar Dashboard | Feature 1 — Métricas Gerais | **US05** — Visualizar gráficos dinâmicos de frequência | Média |
+| Épico 4 - Gerenciar Turmas | Feature 1 — CRUD de Turmas | **US06** — Criar turma com nome, código, horário e alunos | Alta |
+| Épico 4 - Gerenciar Turmas | Feature 1 — CRUD de Turmas | **US07** — Editar dados de uma turma existente | Alta |
+| Épico 4 - Gerenciar Turmas | Feature 1 — CRUD de Turmas | **US08** — Remover turma com exclusão lógica (soft delete) | Média |
+| Épico 4 - Gerenciar Turmas | Feature 2 — Visualização e Busca | **US09** — Listar turmas e alunos com busca e filtro rápido | Alta |
+| Épico 5 - Controlar Frequência | Feature 1 — Registro de Chamada | **US10** — Registrar presença digital em aula (professor) | Alta |
+| Épico 5 - Controlar Frequência | Feature 1 — Registro de Chamada | **US11** — Visualizar histórico de frequência por turma | Alta |
+| Épico 5 - Controlar Frequência | Feature 2 — Carga Horária | **US12** — Gerenciar automaticamente a carga horária das aulas | Média |
+| Épico 6 - Gerar Relatórios | Feature 1 — Relatórios do Professor | **US13** — Gerar relatório consolidado de todas as turmas do professor | Alta |
+| Épico 6 - Gerar Relatórios | Feature 1 — Relatórios do Professor | **US14** — Gerar relatório detalhado por turma selecionada com exportação | Alta |
+| Épico 7 - Área do Aluno | Feature 1 — Acompanhamento de Frequência | **US15** — Visualizar turmas em que o aluno está matriculado | Alta |
+| Épico 7 - Área do Aluno | Feature 1 — Acompanhamento de Frequência | **US16** — Visualizar histórico detalhado de presenças e faltas | Alta |
+| Épico 7 - Área do Aluno | Feature 1 — Acompanhamento de Frequência | **US17** — Receber alertas automáticos de baixa frequência | Média |
+| Épico 8 - Requisitos Técnicos | Feature 1 — Interface e Responsividade | **US18** — Garantir layout responsivo em Desktop, Tablet e Mobile | Alta |
+| Épico 8 - Requisitos Técnicos | Feature 1 — Interface e Responsividade | **US19** — Configurar stack obrigatória: Next.js, NestJS e SQLite | Alta |
+| Épico 8 - Requisitos Técnicos | Feature 1 — Interface e Responsividade | **US20** — Criar protótipo com identidade visual da empresa | Alta |
+| Épico 8 - Requisitos Técnicos | Feature 2 — Entrega e Deploy | **US21** — Versionar código no GitHub com README completo | Alta |
+| Épico 8 - Requisitos Técnicos | Feature 2 — Entrega e Deploy | **US22** — Configurar deploy automatizado via Vercel ou Netlify | Alta |
+| Épico 9 - Diferenciais | Feature 1 — Experiência do Usuário | **US23** — Implementar alternância de tema dark mode | Baixa |
+| Épico 9 - Diferenciais | Feature 1 — Experiência do Usuário | **US24** — Adicionar filtro e busca avançada de alunos | Média |
 
  
- Fonte:  [Geovanna Alves](https://github.com/GeovannaUmbelino), [Lara Souza](https://github.com/mel14-hub),  e [Yan Matheus](https://github.com/Yanmatheus0812).
+ Fonte:  [Geovanna Alves](https://github.com/GeovannaUmbelino).
 
  
 ## Épico 1 — Autenticar
