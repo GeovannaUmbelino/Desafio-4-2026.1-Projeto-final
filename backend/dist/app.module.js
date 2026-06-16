@@ -30,7 +30,7 @@ exports.AppModule = AppModule = __decorate([
                 type: 'sqlite',
                 database: 'data/presenca.db',
                 entities: [user_entity_1.User, class_entity_1.Class, attendance_entity_1.Attendance],
-                synchronize: process.env.NODE_ENV === 'production' ? false : false,
+                synchronize: true,
             }),
             auth_module_1.AuthModule,
             users_module_1.UsersModule,

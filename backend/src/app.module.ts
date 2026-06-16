@@ -19,18 +19,15 @@ import { Attendance } from './attendance/entities/attendance.entity';
       type: 'sqlite',
       database: 'data/presenca.db',
       entities: [User, Class, Attendance],
-      
-      // 💡 A MUDANÇA AUTOMÁTICA DE SEGURANÇA:
-      // Se o banco de dados já existir na pasta 'data', ele não vai resetar ou apagar as tabelas 
-      // quando o NestJS reiniciar após você salvar um arquivo!
-      synchronize: process.env.NODE_ENV === 'production' ? false : false, 
+
+      synchronize: true,
     }),
-    
+
     // Registro dos Módulos Core da Aplicação
     AuthModule,
     UsersModule,
-    ClassesModule, 
-    AttendanceModule, 
+    ClassesModule,
+    AttendanceModule,
   ],
   controllers: [],
   providers: [],
