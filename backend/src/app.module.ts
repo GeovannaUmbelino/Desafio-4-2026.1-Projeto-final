@@ -1,19 +1,35 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm'; // Importação necessária
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { ClassesModule } from './classes/classes.module';
+import { AttendanceModule } from './attendance/attendance.module';
+import { User } from './users/entities/user.entity';
+import { Class } from './classes/entities/class.entity';
+import { Attendance } from './attendance/entities/attendance.entity';
 
 @Module({
   imports: [
-    // A configuração do banco de dados entra aqui dentro!
-    TypeOrmModule.forRoot({
-      type: 'better-sqlite3',
-      database: process.env.DATABASE_PATH || './data/presenca.db',
-      autoLoadEntities: true,
-      synchronize: true, // em dev tá ótimo, cria as tabelas automaticamente
+    ConfigModule.forRoot({
+      isGlobal: true,
     }),
+
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: process.env.DATABASE_URL ?? 'data/presenca.db',
+      entities: [User, Class, Attendance],
+
+      synchronize: true,
+    }),
+
+    // Registro dos Módulos Core da Aplicação
+    AuthModule,
+    UsersModule,
+    ClassesModule,
+    AttendanceModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
