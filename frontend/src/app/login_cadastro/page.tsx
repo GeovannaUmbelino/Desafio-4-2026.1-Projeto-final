@@ -49,7 +49,7 @@ export default function LoginCadastroPage() {
         formData.append('name', name);
         formData.append('email', email);
         formData.append('password', password);
-        formData.append('role', role);
+        formData.append('role', 'ADMIN');
         if (matricula) formData.append('matricula', matricula);
         if (foto) formData.append('foto', foto);
 
