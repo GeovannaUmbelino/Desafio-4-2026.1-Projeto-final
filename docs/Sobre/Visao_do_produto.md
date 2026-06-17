@@ -12,7 +12,7 @@ Essa abordagem foi adotada por ser uma prática consolidada no desenvolvimento �
 
 Abaixo está o mapeamento visual colaborativo construído pela equipe para consolidar os blocos conceituais do sistema:
 
-![Quadro de Concepção da Visão do Produto - S.G.F.T.](../img/visao_produto.jpg)
+![Quadro de Concepção da Visão do Produto ](../img/visao_produto.jpg)
 *Figura 1: Matriz de posicionamento estratégico do produto baseada no modelo de frase encadeada de Geoffrey A. Moore (1991), mapeando os segmentos de usuários (professores, coordenadores e alunos), as dores operacionais identificadas nos laboratórios acadêmicos, os requisitos centrais do sistema web e os fatores de diferenciação frente às soluções de mercado existentes.*
 
 ## 3. Como a Dinâmica foi Realizada

@@ -1,7 +1,7 @@
 # Benchmarking
 
 ## Introdução
-O Benchmarking tem como objetivo analisar produtos, serviços ou sistemas semelhantes já existentes no mercado para identificar boas práticas, pontos fortes e oportunidades de melhoria. Na engenharia de produto do S.G.F.T. (Sistema de Gestão de Frequência e Turmas), esta etapa é fundamental, compreender os padrões de usabilidade consolidados no cenário educacional, mitigar erros recorrentes em sites com o mesmo proposito e garantir que a nosso projeto entregue diferenciais claros e competitivos frente ao mercado.
+O Benchmarking tem como objetivo analisar produtos, serviços ou sistemas semelhantes já existentes no mercado para identificar boas práticas, pontos fortes e oportunidades de melhoria. Na engenharia de produto do Acessa, esta etapa é fundamental, compreender os padrões de usabilidade consolidados no cenário educacional, mitigar erros recorrentes em sites com o mesmo proposito e garantir que a nosso projeto entregue diferenciais claros e competitivos frente ao mercado.
 
 ## Metodologia 
 A pesquisa e estruturação desta matriz comparativa baseou-se na técnica de **Análise Competitiva de Mercado**, uma vertente da engenharia de produto que mapeia o ecossistema de soluções nas categorias de concorrentes diretos e indiretos:
@@ -11,7 +11,7 @@ A pesquisa e estruturação desta matriz comparativa baseou-se na técnica de **
 
 
 ## Matriz Comparativa de Mercado
-Abaixo, comparamos os principais sistemas acadêmicos e ferramentas comerciais atuais com o escopo do S.G.F.T.:
+Abaixo, comparamos os principais sistemas acadêmicos e ferramentas comerciais atuais com o escopo do Acessa:
 
 | Critério / Concorrente | SIGAA | Moodle | Google Classroom | **S.G.F.T. (Nossa Solução)** |
 | :--- | :--- | :--- | :--- | :--- |
@@ -25,12 +25,12 @@ Abaixo, comparamos os principais sistemas acadêmicos e ferramentas comerciais a
 
 ## Conclusão e Diferenciais
 
-A partir do mapeamento do mercado, o Squad Newtons consolidou os seguintes direcionamentos estratégicos e técnicos para o desenvolvimento do S.G.F.T.:
+A partir do mapeamento do mercado, o Squad Newtons consolidou os seguintes direcionamentos estratégicos e técnicos para o desenvolvimento:
 
-- Guerra à Burocracia: Diferente do SUAP, o painel do professor no S.G.F.T. será focado em cliques rápidos para presença/falta e salvamento instantâneo, reduzindo o tempo operacional de controle de turmas com grande volume de estudantes.
+- Guerra à Burocracia: Diferente do SUAP, o painel do professor no Acessa será focado em cliques rápidos para presença/falta e salvamento instantâneo, reduzindo o tempo operacional de controle de turmas com grande volume de estudantes.
 - Mitigação de Fraudes e Segurança Dinâmica: Enquanto os sistemas tradicionais aceitam assinaturas retroativas ou listas em papel facilmente burláveis, nossa aplicação contará com autenticação segura e registro digital datado e indexado no banco de dados.
 
-- Engenharia de Dados e Visualização Avançada: O S.G.F.T. preencherá a lacuna de relatórios fracos do mercado através de um painel estatístico com gráficos dinâmicos de assiduidade e algoritmos que emitem alertas preditivos de baixa frequência para alunos em situação de risco de reprovação.
+- Engenharia de Dados e Visualização Avançada: O Acessa preencherá a lacuna de relatórios fracos do mercado através de um painel estatístico com gráficos dinâmicos de assiduidade e algoritmos que emitem alertas preditivos de baixa frequência para alunos em situação de risco de reprovação.
 
 - Performance Limpa e Acessibilidade: Foco total na velocidade de carregamento (métricas de desempenho rígidas com tempos de carregamento de páginas críticas inferiores a 2 segundos) e interface com suporte nativo a Dark Mode e acessibilidade digital multiplataforma.
 

@@ -36,4 +36,4 @@ A matriz será tratada como um documento vivo, construída e mantida no ambiente
 
 | Versão | Data       | Descrição                                     | Autor                                                 | Revisor                                               |
 | ------ | ---------- | --------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| 1.0    | 15/06/2026 | Documentação da Matriz Esforço X Impacto      | [Felipe Serikava](https://github.com/felipeserikava-web) | [Geovanna Alves](https://github.com/GeovannaUmbelino) |
+| 1.0    | 14/06/2026 | Documentação da Matriz Esforço X Impacto      | [Felipe Serikava](https://github.com/felipeserikava-web) | [Geovanna Alves](https://github.com/GeovannaUmbelino) |

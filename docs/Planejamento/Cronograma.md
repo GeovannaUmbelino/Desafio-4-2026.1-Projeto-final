@@ -38,7 +38,7 @@ A *Tabela 3* aborda o período mais intenso de desenvolvimento técnico, onde a 
 | Atividade | Início do desenvolvimento | Fim do desenvolvimento | Responsáveis | Revisão | Revisores |
 | :--- | :---: | :---: | :--- | :---: | :--- |
 | Configuração Base do Repositório (Branches) | 05/06 | 05/06 | [Geovanna Alves](https://github.com/GeovannaUmbelino) | 05/06 | [Felipe Serikava](https://github.com/felipeserikava-web), Camila |
-| Codificação das Rotas e Páginas (Front-end) | 05/06 | 12/06 | [Ronan Freitas](https://github.com/HunterBRR), [Geovanna Alves](https://github.com/GeovannaUmbelino) | 12/06 | Gabriel (PR) |
+| Codificação das Rotas e Páginas (Front-end) | 05/06 | 12/06 | [Ronan Freitas](https://github.com/HunterBRR), [Geovanna Alves](https://github.com/GeovannaUmbelino) | 12/06 | [Felipe Serikava](https://github.com/felipeserikava-web), [Ronan Freitas](https://github.com/HunterBRR) |
 | Desenvolvimento de APIs e Banco (Back-end) | 05/06 | 12/06 | [Felipe Serikava](https://github.com/felipeserikava-web), [Geovanna Alves](https://github.com/GeovannaUmbelino) | 12/06 | [Ronan Freitas](https://github.com/HunterBRR) |
 | Implementação de Responsividade Geral | 10/06 | 12/06 | [Geovanna Alves](https://github.com/GeovannaUmbelino) | 12/06 | [Ronan Freitas](https://github.com/HunterBRR) e [Felipe Serikava](https://github.com/felipeserikava-web) |
 | Otimização de SEO e Configuração de Metadados| 11/06 | 12/06 | [Geovanna Alves](https://github.com/GeovannaUmbelino) | 12/06 | [Ronan Freitas](https://github.com/HunterBRR) |
@@ -79,4 +79,4 @@ A *Tabela 5* descreve os artefatos adicionais produzidos pelos Newtons para agre
 
 | Versão | Data       | Descrição                                     | Autor                                                                                                                                                                                                                                                                                                      | Revisor                                               |
 | ------ | ---------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 1.0    | 05/06/2026 | Adicionando cronograma    |  [Geovanna Alves](https://github.com/GeovannaUmbelino) | [Felipe Serikava](https://github.com/felipeserikava-web)  e [Ronan Freitas](https://github.com/HunterBRR)|
+| 1.0    | 28/05/2026 | Adicionando cronograma    |  [Geovanna Alves](https://github.com/GeovannaUmbelino) | [Felipe Serikava](https://github.com/felipeserikava-web)  e [Ronan Freitas](https://github.com/HunterBRR)|

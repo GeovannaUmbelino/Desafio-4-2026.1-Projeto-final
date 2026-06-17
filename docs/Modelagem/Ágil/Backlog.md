@@ -98,10 +98,8 @@ Esse épico apresenta as funcionalidades extras que agregam valor à experiênci
  
 
 
-Fonte:  [Geovanna Alves](https://github.com/GeovannaUmbelino), [Lara Souza](https://github.com/mel14-hub),  e [Yan Matheus](https://github.com/Yanmatheus0812).
-
 ## Histórico de Versões
 
 | Versão | Data       | Descrição                                     | Autor                                                                                                                                                                                                                                                                                                      | Revisor                                               |
 | ------ | ---------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| 1.0    | 05/06/2026 | Documentação da visão de produto      |  [Geovanna Alves](https://github.com/GeovannaUmbelino), [Felipe Serikava](https://github.com/felipeserikava-web) e [Ronan Freitas](https://github.com/HunterBRR)| [Felipe Serikava](https://github.com/felipeserikava-web) e [Ronan Freitas](https://github.com/HunterBRR)|
+| 1.0    | 03/06/2026 | Documentação da visão de produto      |  [Geovanna Alves](https://github.com/GeovannaUmbelino), [Felipe Serikava](https://github.com/felipeserikava-web) e [Ronan Freitas](https://github.com/HunterBRR)| [Felipe Serikava](https://github.com/felipeserikava-web) e [Ronan Freitas](https://github.com/HunterBRR)|
