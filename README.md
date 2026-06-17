@@ -2,7 +2,7 @@
 
 <div align="center">
    <a href="" target="_blank">
-        <img src="https://i.postimg.cc/QCGThy4P/logo.png" height="70" alt=""/>
+        <img src="https://i.postimg.cc/J0vYVbKr/logo-acessa.png" height="70" alt=""/>
     </a>
 </div>
 
@@ -12,8 +12,8 @@ Este repositório foi desenvolvido para documentar o projeto final do Trainee da
 
 ---
 
-## Sobre o Sistema de Gestão de Presença e Turmas
-O Sistema de Gestão de Presença  é uma solução web Full Stack projetada para modernizar, automatizar e conferir total confiabilidade ao controle de assiduidade em ambientes acadêmicos complexos, como laboratórios e aulas práticas. 
+## Sobre o Acessa
+O Acessa  é uma solução web Full Stack projetada para modernizar, automatizar e conferir total confiabilidade ao controle de assiduidade em ambientes acadêmicos complexos, como laboratórios e aulas práticas. 
 
 A plataforma foi concebida para substituir os antigos métodos manuais baseados em listas de papel, mitigando diretamente gargalos operacionais crônicos como:
 * **Fraudes em registros:** Evita que estudantes assinem a presença por colegas ausentes através de um ecossistema com autenticação segura e restrita.
