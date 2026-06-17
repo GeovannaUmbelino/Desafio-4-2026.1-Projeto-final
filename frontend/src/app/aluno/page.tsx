@@ -223,8 +223,7 @@ export default function AlunoPage() {
                   const p = pct(m);
                   const s = sit(p);
                   const nomeMateria = m.turma?.name || (m as any).name || "Componente Curricular";
-                  const idMateria = m.turma?.id || m.id;
-                  return (
+                  const idMateria = m.turma?.id || (m as any).id;                  return (
                     <div key={idMateria}>
                       <div className="flex justify-between text-xs mb-1">
                         <span className="text-gray-700 dark:text-gray-300 font-medium">{nomeMateria}</span>
