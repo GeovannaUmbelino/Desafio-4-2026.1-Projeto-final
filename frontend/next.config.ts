@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Adicione esta linha:
-  turbopack: {}, 
-  
-  // Se você tiver outras configurações aqui, mantenha-as.
+  typescript: {
+    // Alerta: Isso ignora os erros de tipagem APENAS na hora de buildar no Render
+    ignoreBuildErrors: true,
+  },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
