@@ -53,8 +53,7 @@ export default function LoginCadastroPage() {
         if (matricula) formData.append('matricula', matricula);
         if (foto) formData.append('foto', foto);
 
-        const response = await fetch('http://localhost:3001/auth/register', {
-          method: 'POST',
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, { method: 'POST',
           body: formData,
         });
 
