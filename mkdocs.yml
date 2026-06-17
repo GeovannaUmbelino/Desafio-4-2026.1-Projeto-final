@@ -1,5 +1,5 @@
-site_name: Sistema de Gestão de Presença
-repo_url: 
+site_name: Acessa - Sistema de Gestão de Presença
+repo_url: https://github.com/GeovannaUmbelino/Desafio-4-2026.1-Projeto-final.git
 theme:
   name: material
   custom_dir: overrides
