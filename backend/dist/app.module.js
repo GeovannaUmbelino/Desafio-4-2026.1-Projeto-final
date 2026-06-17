@@ -28,7 +28,7 @@ exports.AppModule = AppModule = __decorate([
             }),
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'sqlite',
-                database: 'data/presenca.db',
+                database: process.env.DATABASE_URL ?? 'data/presenca.db',
                 entities: [user_entity_1.User, class_entity_1.Class, attendance_entity_1.Attendance],
                 synchronize: true,
             }),

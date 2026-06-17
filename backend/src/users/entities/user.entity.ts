@@ -1,4 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+} from 'typeorm';
 
 export enum UserRole {
   ADMIN = 'admin',
@@ -23,7 +28,7 @@ export class User {
   @Column({ type: 'text', default: UserRole.PROFESSOR })
   role!: UserRole;
 
-  // Campo para matrícula 
+  // Campo para matrícula
   @Column({ nullable: true })
   matricula?: string;
 

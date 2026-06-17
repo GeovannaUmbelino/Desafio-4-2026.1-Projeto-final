@@ -17,7 +17,7 @@ import { Attendance } from './attendance/entities/attendance.entity';
 
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'data/presenca.db',
+      database: process.env.DATABASE_URL ?? 'data/presenca.db',
       entities: [User, Class, Attendance],
 
       synchronize: true,
