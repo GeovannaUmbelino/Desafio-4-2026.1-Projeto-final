@@ -1,5 +1,11 @@
 # Desafio-4-2026.1-Projeto-final
 
+<div align="center">
+   <a href="" target="_blank">
+        <img src="https://i.postimg.cc/J0vYVbKr/logo-acessa.png" height="70" alt=""/>
+    </a>
+</div>
+
 ## Sistema de Controle de Presença - Cessa.io (Acessa)
 
 O **Cessa.io** é uma plataforma web full-stack de gestão e controle de frequência escolar/acadêmica em tempo real. O sistema foi desenvolvido para descentralizar a chamada física, permitindo que professores gerenciem diários de classe com facilidade, administradores acompanhem métricas institucionais e alunos visualizem seu histórico de presença e alertas de risco de baixa frequência de forma transparente.
@@ -8,8 +14,8 @@ O **Cessa.io** é uma plataforma web full-stack de gestão e controle de frequê
 
 ## Links do Projeto
 
-* **🚀 Link do Deploy (Frontend):** [Acesse a Aplicação Aqui](https://seu-frontend.vercel.app)
-* **⚙️ Link do Deploy (API/Backend):** [Acesse a API Aqui](https://seu-backend.onrender.com)
+* **🚀 Link do Deploy (Frontend):** [Acesse a Aplicação Aqui](https://engnet-frontend.onrender.com/login_cadastro?redirect=%2F)
+* **⚙️ Link do Deploy (API/Backend):** [Acesse a API Aqui](https://engnet-backend-19o2.onrender.com/)
 * **📚 Documentação:** [Acesse a Documentação](https://geovannaumbelino.github.io/Desafio-4-2026.1-Projeto-final/)
 
 ---
@@ -30,8 +36,7 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
 ## 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/GeovannaUmbelino/Desafio-4-2026.1-Projeto-final.git
 ```
 
 ---
@@ -50,16 +55,6 @@ Instale as dependências:
 npm install
 ```
 
-Crie um arquivo `.env` na raiz da pasta `backend` com as seguintes variáveis:
-
-```env
-PORT=3001
-JWT_SECRET=sua_chave_secreta_e_segura_aqui
-DATABASE_URL=database.sqlite
-```
-
-!!! warning "Segurança"
-    Nunca commite o arquivo `.env` no repositório. Adicione-o ao `.gitignore`.
 
 Execute o projeto em modo de desenvolvimento:
 
@@ -85,11 +80,6 @@ Instale as dependências:
 npm install
 ```
 
-Crie um arquivo `.env.local` na raiz da pasta `frontend`:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3001
-```
 
 Execute o servidor de desenvolvimento:
 
