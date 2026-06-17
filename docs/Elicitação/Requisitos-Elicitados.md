@@ -20,16 +20,16 @@ A seguir temos a tabela 1, onde indica todos os participantes da técnica de eli
     <tbody>
       <tr>
         <td><a href="https://github.com/felipeserikava-web">Felipe Serikava</a></td>
-         <td>05/06/2026</td>
+         <td>29/05/2026</td>
         <td>Elaborou de forma conjunta todos os requisitos</td>
       </tr>
         <td><a href="https://github.com/GeovannaUmbelino">Geovanna Alves</a></td>
-        <td>05/06/2026</td>
+        <td>29/05/2026</td>
         <td>Elaborou de forma conjunta todos os requisitos</td>
       </tr>
       <tr>
        <td><a href="https://github.com/HunterBRR">Ronan Freitas</a></td>
-         <td>05/06/2026</td>
+         <td>29/05/2026</td>
         <td>Elaborou de forma conjunta todos os requisitos</td>
       </tr>
     </tbody>
