@@ -10,7 +10,7 @@ O **Cessa.io** é uma plataforma web full-stack de gestão e controle de frequê
 
 * **🚀 Link do Deploy (Frontend):** [Acesse a Aplicação Aqui](https://seu-frontend.vercel.app)
 * **⚙️ Link do Deploy (API/Backend):** [Acesse a API Aqui](https://seu-backend.onrender.com)
-* **📚 Documentação da API:** [Acesse a Documentação (Postman/Swagger)](https://link-da-documentacao.com)
+* **📚 Documentação:** [Acesse a Documentação](https://geovannaumbelino.github.io/Desafio-4-2026.1-Projeto-final/)
 
 ---
 
@@ -103,15 +103,27 @@ O frontend estará disponível em: **http://localhost:3000**
     Se preferir usar Docker Compose, substitua `NEXT_PUBLIC_API_URL=http://localhost:3001` por `NEXT_PUBLIC_API_URL=http://backend:3001` no `docker-compose.yml` e execute `docker compose up --build`.
 
 
- #  Usuários de Teste Padrão
+
+
+ ## Papéis dos Usuários 
  
-Caso o banco SQLite seja populado via seed automaticamente, utilize as credenciais abaixo para testar cada painel funcional do ecossistema:
+O sistema utiliza controle por funções (`role`), adaptando as permissões e o painel de acordo com o perfil logado:
  
-| Nível de Acesso | E-mail de Teste | Senha Padrão |
-|---|---|---|
-| Administrador | `admin@admin.com` | `admin123` |
-| Professor | `professor@escola.com` | `123456` |
-| Estudante | `aluno@escola.com` | `123456` |
+---
  
-!!! danger "Atenção"
-    Essas credenciais são exclusivas para ambiente local de desenvolvimento. **Nunca utilize senhas padrão em produção.**
+1. Administrador (`admin`)
+   -  **Visão Global:** Acompanha a média de presença de toda a instituição e a lista de todos os alunos em risco.
+   -  **Controle Total:** Cadastra, edita e remove Professores, Alunos e Disciplinas.
+   -   **Matrículas:** É o único que pode vincular os alunos às suas respectivas turmas.
+ 
+ 2. Professor (`professor`)
+   -  **Visão Isolada:** Acompanha os gráficos de frequência e alunos em risco apenas das matérias que ele ministra.
+   -  **Chamada Digital:** Lança as presenças e faltas dos alunos em tempo real por data.
+   -  **Relatórios:** Acessa o histórico detalhado de assiduidade da turma.
+ 
+3. Aluno (`aluno`)
+   -  **Painel Consultivo:** Visualiza apenas as matérias em que está matriculado, com códigos e horários.
+   -  **Transparência:** Acompanha sua porcentagem de presença por matéria via barras de progresso.
+   -   **Controle de Faltas:** Consulta a tabela com o total de aulas, presenças e faltas acumuladas para evitar reprovação.
+ 
+
